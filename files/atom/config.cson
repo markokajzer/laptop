@@ -1,0 +1,133 @@
+"*":
+  "activate-power-mode":
+    autoToggle: false
+  "atom-ide-ui":
+    "atom-ide-code-format":
+      formatOnType: false
+    "atom-ide-datatip": {}
+    "atom-ide-diagnostics-ui": {}
+    use:
+      "atom-ide-code-format": "never"
+      "atom-ide-console": "never"
+  "atom-package-deps":
+    ignored: [
+      "linter-eslint"
+      "linter-ruby"
+      "linter-rubocop"
+    ]
+  "atom-terminal":
+    surpressDirectoryArgument: false
+  "autocomplete-plus":
+    confirmCompletion: "tab"
+  autosave:
+    enabled: true
+  "bracket-matcher":
+    highlightMatchingLineNumber: true
+  core:
+    disabledPackages: [
+      "metrics"
+      "minimap-autohide"
+      "linter-reek"
+      "linter-ruby"
+      "github"
+      "welcome"
+      "bookmarks"
+    ]
+    openEmptyEditorOnStart: false
+    packagesWithKeymapsDisabled: [
+      "activate-power-mode"
+    ]
+    projectHome: "/Users/solinvictus/projects"
+    telemetryConsent: "no"
+    themes: [
+      "one-dark-ui"
+      "one-dark-vivid-syntax"
+    ]
+    titleBar: "custom-inset"
+  editor:
+    fontFamily: "Fira Mono"
+    invisibles:
+      eol: true
+    preferredLineLength: 100
+    scrollPastEnd: true
+    showIndentGuide: true
+    showInvisibles: true
+    tabType: "soft"
+  "exception-reporting":
+    userId: "9cd06812-cee0-40e1-9f98-352939866a34"
+  "file-icons":
+    strategies: {}
+  "git-blame":
+    columnWidth: 313
+  "git-diff": {}
+  "git-projects":
+    maxDepth: 2
+    rootPath: "/Users/solinvictus/projects"
+  "highlight-line": {}
+  "highlight-selected": {}
+  linter:
+    lintOnChange: false
+    lintPreviewTabs: false
+  "linter-eslint": {}
+  "linter-flake8":
+    maxLineLength: 100
+  "linter-pycodestyle":
+    maxLineLength: 100
+  "linter-pylint": {}
+  "linter-tslint":
+    enableSemanticRules: true
+  "linter-ui-default":
+    panelHeight: 145
+    showPanel: true
+  "markdown-preview":
+    liveUpdate: false
+    useGitHubStyle: true
+  "markdown-preview-plus":
+    enableLatexRenderingByDefault: true
+    useGitHubStyle: true
+  minimap:
+    disablePythonDocLinks: true
+    plugins:
+      cursorline: true
+      cursorlineDecorationsZIndex: 0
+      "find-and-replace": true
+      "find-and-replaceDecorationsZIndex": 0
+      "highlight-selected": true
+      "highlight-selectedDecorationsZIndex": 0
+      "minimap-autohide": true
+      "minimap-autohideDecorationsZIndex": 0
+    scrollAnimation: true
+  "project-manager":
+    environmentSpecificProjects: true
+    sortBy: "last modified"
+  "sync-settings":
+    _lastBackupHash: "6c305d5fbbf2347edef5c8cab79568dc2c497579"
+    analytics: false
+    checkForUpdatedBackup: false
+    gistId: "8f66f56495213890ce7b46e98a5363d9"
+    personalAccessToken: "31ce0f15d5264c340e26502ad97364d3b4054aed"
+    syncInit: false
+    syncKeymap: false
+    syncSettings: false
+    syncSnippets: false
+    syncStyles: false
+  tabs:
+    enableVcsColoring: true
+  "tabs-to-spaces": {}
+  "tree-view":
+    hideIgnoredNames: true
+  welcome:
+    showOnStartup: false
+  whitespace:
+    ignoreWhitespaceOnCurrentLine: false
+    removeTrailingWhitespace: true
+".python.regexp.source":
+  editor:
+    tabLength: 4
+".python.source":
+  editor:
+    tabLength: 4
+".slim.text":
+  whitespace:
+    ignoreWhitespaceOnCurrentLine: false
+    removeTrailingWhitespace: true

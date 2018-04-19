@@ -1,0 +1,21 @@
+[user]
+        name = markokajzer
+        email = markokajzer91@gmail.com
+[includeIf "gitdir:~/projects/fleetbutler/"]
+        path = .gitconfig-moqo
+[alias]
+        co = checkout
+        br = branch
+        ci = commit
+        st = status
+[push]
+        default = simple
+[core]
+        excludesfile = ~/.gitignore
+[credential]
+        helper = osxkeychain
+[filter "lfs"]
+        clean = git-lfs clean -- %f
+        smudge = git-lfs smudge -- %f
+        process = git-lfs filter-process
+        required = true

@@ -1,0 +1,128 @@
+#!/bin/bash
+
+nl_echo() {
+  local fmt="$1"; shift
+  printf "\n$fmt\n" "$@"
+}
+
+latest_ruby_version() {
+  rbenv install -l | grep -v - | tail -1 | sed -e 's/^ *//'
+}
+
+
+WALLPAPER_URL="https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-618958.jpg"
+
+
+mkdir -p ~/projects
+
+nl_echo "Cloning laptop..."
+rm -rf ~/.laptop
+git clone git@github.com:markokajzer/laptop.git ~/.laptop  # &> /dev/null
+
+nl_echo "Creating global .gitconfig..."
+cp ~/.laptop/files/.git* ~
+
+nl_echo "Creating .gemrc..."
+echo "gem: --no-document" > ~/.gemrc
+
+nl_echo "Installing Command Line Tools..."
+xcode-select --install
+
+
+nl_echo "Installing Brew..."
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+
+nl_echo "Installing Brew packages..."
+packages=(
+  autoconf
+  automake
+  readline
+  openssl
+  git
+  zsh
+  sqlite
+  nodenv
+  node-build
+  yarn
+)
+for package in "${packages[@]}"; do
+  brew install $package
+done
+
+
+nl_echo "Do we need Ruby?"
+read -r -n 1 response
+if [ "$response" = "y" ]; then
+  brew install rbenv ruby-build
+
+  ruby_version="$(find_latest_ruby)"
+  rbenv install --skip-existing "$ruby_version"
+  rbenv global "$ruby_version"
+  gem update --system
+  gem install bundler
+  rbenv rehash
+fi
+
+nl_echo "Do we need Python?"
+read -r -n 1 response
+if [ "$response" = "y" ]; then
+  brew install python@2 python
+fi
+
+nl_echo "Installing Applications..."
+applications=(
+  atom
+  flux
+  google-chrome
+  java
+)
+for application in "${applications[@]}"; do
+  "Installing $application..."
+  brew install $application
+done
+
+nl_echo "Skipping Android Studio..."
+nl_echo "Skipping virtualbox vagrant..."
+
+nl_echo "Installing fonts..."
+brew tap caskroom/fonts
+brew cask install font-fira-mono
+brew cask install font-inconsolata-dz-for-powerline
+
+nl_echo "Cleaning up Brew..."
+brew cleanup -s
+brew cask cleanup
+
+
+nl_echo "Installing prezto..."
+git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+setopt EXTENDED_GLOB
+for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
+  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+done
+
+nl_echo "Overwriting runcoms..."
+cat ~/.laptop/files/.zpreztorc >| ~/.zpreztorc
+cat ~/.laptop/files/.zprofile  >| ~/.zprofile
+cat ~/.laptop/files/.zshrc     >| ~/.zshrc
+
+nl_echo "Changing shell to zsh..."
+chsh -s "$(which zsh)"
+
+
+nl_echo "Syncing Atom Settings..."
+cp ~/.laptop/files/* ~/.atom/
+apm install sync-settings
+
+
+nl_echo "Changing desktop wallpaper..."
+curl -o ~/.laptop/files/wallpaper.jpg $WALLPAPER_URL
+osascript -e "tell application \"system events\" to set picture of every desktop to (\"/Users/$(whoami)/.laptop/files/wallpaper.jpg\" as posix file as alias)"
+
+
+nl_echo "Yuhu! Installation completed."
+nl_echo "Things left to do:"
+echo "[ ] Atom Sync Settings"
+echo "[ ] 1Password"
+echo "[ ] Postgres.app"
