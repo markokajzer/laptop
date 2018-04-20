@@ -9,6 +9,7 @@
     use:
       "atom-ide-code-format": "never"
       "atom-ide-console": "never"
+      "atom-ide-debugger": "never"
   "atom-package-deps":
     ignored: [
       "linter-eslint"
