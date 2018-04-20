@@ -5,10 +5,6 @@ nl_echo() {
   printf "\n$fmt\n" "$@"
 }
 
-latest_ruby_version() {
-  rbenv install -l | grep -v - | tail -1 | sed -e 's/^ *//'
-}
-
 
 WALLPAPER_URL="https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-618958.jpg"
 
@@ -61,7 +57,7 @@ read -r response
 if [[ "$response" = "y" ]]; then
   brew install rbenv ruby-build
 
-  ruby_version="$(find_latest_ruby)"
+  ruby_version="$(rbenv install -l | grep -v - | tail -1 | sed -e 's/^ *//')"
   rbenv install --skip-existing "$ruby_version"
   rbenv global "$ruby_version"
   gem update --system
