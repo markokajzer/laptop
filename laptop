@@ -23,15 +23,19 @@ nl_echo "Creating global .gitconfig..."
 cp ~/.laptop/files/.git* ~
 
 nl_echo "Creating .gemrc..."
-echo "gem: --no-document" > ~/.gemrc
+echo "gem: --no-document" >| ~/.gemrc
 
 nl_echo "Installing Command Line Tools..."
 xcode-select --install
 
 
-nl_echo "Installing Brew..."
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
+if ! command -v brew >/dev/null; then
+  nl_echo "Installing Brew..."
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+else
+  nl_echo "Updating Brew..."
+  brew update
+fi
 
 nl_echo "Installing Brew packages..."
 packages=(
@@ -51,9 +55,10 @@ for package in "${packages[@]}"; do
 done
 
 
-nl_echo "Do we need Ruby?"
-read -r -n 1 response
-if [ "$response" = "y" ]; then
+echo
+printf "Do we need Ruby? [yN]  "
+read -r response
+if [[ "$response" = "y" ]]; then
   brew install rbenv ruby-build
 
   ruby_version="$(find_latest_ruby)"
@@ -62,13 +67,19 @@ if [ "$response" = "y" ]; then
   gem update --system
   gem install bundler
   rbenv rehash
+else
+  echo "Skipping Ruby."
 fi
 
-nl_echo "Do we need Python?"
-read -r -n 1 response
-if [ "$response" = "y" ]; then
+echo
+printf "Do we need Python? [yN]  "
+read -r response
+if [[ "$response" = "y" ]]; then
   brew install python@2 python
+else
+  echo "Skipping Python."
 fi
+
 
 nl_echo "Installing Applications..."
 applications=(
@@ -78,12 +89,12 @@ applications=(
   java
 )
 for application in "${applications[@]}"; do
-  "Installing $application..."
+  echo "Installing $application..."
   brew install $application
 done
 
 nl_echo "Skipping Android Studio..."
-nl_echo "Skipping virtualbox vagrant..."
+echo    "Skipping virtualbox vagrant..."
 
 nl_echo "Installing fonts..."
 brew tap caskroom/fonts
@@ -95,12 +106,16 @@ brew cleanup -s
 brew cask cleanup
 
 
-nl_echo "Installing prezto..."
-git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
-setopt EXTENDED_GLOB
-for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
-  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
-done
+if [[ ! -d ~/.zprezto ]]; then
+  nl_echo "Installing prezto..."
+  git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+  setopt EXTENDED_GLOB
+  for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
+    ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+  done
+else
+  nl_echo "prezto is already installed."
+fi
 
 nl_echo "Overwriting runcoms..."
 cat ~/.laptop/files/.zpreztorc >| ~/.zpreztorc
@@ -123,6 +138,7 @@ osascript -e "tell application \"system events\" to set picture of every desktop
 
 nl_echo "Yuhu! Installation completed."
 nl_echo "Things left to do:"
-echo "[ ] Atom Sync Settings"
-echo "[ ] 1Password"
-echo "[ ] Postgres.app"
+echo "[ ] Set Terminal profiles"
+echo "[ ] Sync Atom Settings"
+echo "[ ] Setup 1Password"
+echo "[ ] Install Postgres.app"

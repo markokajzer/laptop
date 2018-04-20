@@ -2,6 +2,8 @@
 
 A shell script to set up my development machine.
 
+This script can be ran once or as many times as you'd like. It installs everything that macOS needs to get to work.
+
 
 ## Install
 
