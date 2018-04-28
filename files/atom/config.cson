@@ -81,7 +81,6 @@
     panelHeight: 145
     showPanel: true
   "markdown-preview":
-    liveUpdate: false
     useGitHubStyle: true
   "markdown-preview-plus":
     enableLatexRenderingByDefault: true
