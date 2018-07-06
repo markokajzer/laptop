@@ -114,16 +114,16 @@ else
 fi
 
 nl_echo "Overwriting runcoms..."
-cat ~/.laptop/files/.zpreztorc >| ~/.zpreztorc
-cat ~/.laptop/files/.zprofile  >| ~/.zprofile
-cat ~/.laptop/files/.zshrc     >| ~/.zshrc
+cat ~/.laptop/files/prezto/.zpreztorc  >| ~/.zpreztorc
+cat ~/.laptop/files/prezto/.zprofile   >| ~/.zprofile
+cat ~/.laptop/files/prezto/.zshrc      >| ~/.zshrc
 
 nl_echo "Changing shell to zsh..."
-chsh -s "$(which zsh)"
+chsh -s /bin/zsh
 
 
 nl_echo "Syncing Atom Settings..."
-cp ~/.laptop/files/* ~/.atom/
+cp -r ~/.laptop/files/atom ~/.atom
 apm install sync-settings
 
 
