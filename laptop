@@ -86,7 +86,7 @@ applications=(
 )
 for application in "${applications[@]}"; do
   echo "Installing $application..."
-  brew install $application
+  brew cask install $application
 done
 
 nl_echo "Skipping Android Studio..."
