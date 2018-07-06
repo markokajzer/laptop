@@ -16,7 +16,7 @@ rm -rf ~/.laptop
 git clone git@github.com:markokajzer/laptop.git ~/.laptop  # &> /dev/null
 
 nl_echo "Creating global .gitconfig..."
-cp ~/.laptop/files/.git* ~
+cp ~/.laptop/files/git/.git* ~
 
 nl_echo "Creating .gemrc..."
 echo "gem: --no-document" >| ~/.gemrc
