@@ -15,6 +15,7 @@
       "linter-eslint"
       "linter-ruby"
       "linter-rubocop"
+      "linter-tslint"
     ]
   "atom-terminal":
     surpressDirectoryArgument: false
@@ -33,6 +34,9 @@
       "github"
       "welcome"
       "bookmarks"
+      "linter"
+      "busy-signal"
+      "intentions"
     ]
     openEmptyEditorOnStart: false
     packagesWithKeymapsDisabled: [
@@ -79,7 +83,6 @@
     enableSemanticRules: true
   "linter-ui-default":
     panelHeight: 145
-    showPanel: true
   "markdown-preview":
     useGitHubStyle: true
   "markdown-preview-plus":
@@ -100,8 +103,9 @@
   "project-manager":
     environmentSpecificProjects: true
     sortBy: "last modified"
+  "spell-check": {}
   "sync-settings":
-    _lastBackupHash: "6c305d5fbbf2347edef5c8cab79568dc2c497579"
+    _lastBackupHash: "aaf3e6620a0ec19f8e5c1c7f123c1f279990e93b"
     analytics: false
     checkForUpdatedBackup: false
     gistId: "8f66f56495213890ce7b46e98a5363d9"
