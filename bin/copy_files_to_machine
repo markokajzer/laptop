@@ -1,18 +1,21 @@
 #!/bin/bash
 
-nl_echo() {
-  local fmt="$1"; shift
-  printf "\n$fmt\n" "$@"
-}
+if [ -d ~/.atom ]
+then
+  echo "Syncing Atom Settings..."
+  cp files/atom/* ~/.atom
+fi
 
+if [ -d "~/Library/Application Support/Code/User" ]
+then
+  echo "Syncing Code Settings..."
+  cp files/code/* "~/Library/Application Support/Code/User"
+fi
 
-nl_echo "Syncing Atom Settings..."
-cp files/atom/*   ~/.atom
+echo "Updating global git config..."
+cp files/git/.git* ~
 
-nl_echo "Updating global git config..."
-cp files/git/*    ~
-
-nl_echo "Overwriting runcoms..."
-cat files/.zpreztorc >| ~/.zpreztorc
-cat files/.zprofile  >| ~/.zprofile
-cat files/.zshrc     >| ~/.zshrc
+echo "Overwriting runcoms..."
+cat files/prezto/.zpreztorc >| ~/.zpreztorc
+cat files/prezto/.zprofile  >| ~/.zprofile
+cat files/prezto/.zshrc     >| ~/.zshrc

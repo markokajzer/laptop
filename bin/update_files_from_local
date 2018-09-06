@@ -8,6 +8,12 @@ cp ~/.atom/keymap.cson    files/atom/
 cp ~/.atom/snippets.cson  files/atom/
 cp ~/.atom/styles.less    files/atom/
 
+mkdir -p files/code
+path=~/Library/Application\ Support/Code/User
+cp "$path/keybindings.json" files/code/
+cp "$path/locale.json"      files/code/
+cp "$path/settings.json"    files/code/
+
 mkdir -p files/git/
 cp ~/.gitconfig       files/git/
 cp ~/.gitconfig-moqo  files/git/

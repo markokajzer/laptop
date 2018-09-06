@@ -1,0 +1,99 @@
+// Place your settings in this file to overwrite the default settings
+{
+  "editor": {
+    "acceptSuggestionOnEnter": false,
+    "dragAndDrop": false,
+    "fontFamily": "Fira Mono, Inconsolata-dz",
+    "fontSize": 14,
+    "formatOnPaste": true,
+    "lineHeight": 22,
+    "minimap": {
+      "enabled": true,
+      "renderCharacters": false,
+      "showSlider": "always"
+    },
+    "renderControlCharacters": true,
+    "renderIndentGuides": true,
+    "renderLineHighlight": "all",
+    "renderWhitespace": "boundary",
+    "roundedSelection": false,
+    "rulers": [100],
+    "tabSize": 2
+  },
+  "explorer": {
+    "openEditors": {
+      "visible": 0
+    }
+  },
+  "files": {
+    "autoSave": "onFocusChange",
+    "associations": {
+      "*.reek": "yaml"
+    },
+    "insertFinalNewline": true,
+    "trimTrailingWhitespace": true
+  },
+  "search": {
+    "exclude": {
+      "**/.git": true,
+      "**/node_modules": true,
+      "**/bower_components": true,
+      "**/coverage": true,
+      "**/tmp": true
+    }
+  },
+  "telemetry": {
+    "enableTelemetry": false,
+    "enableCrashReporter": false
+  },
+  "workbench": {
+    "activityBar.visible": true,
+    "editor": {
+      "showTabCloseButton": true,
+      "tabSizing": "shrink"
+    },
+    "statusBar.visible": true,
+    "colorTheme": "One Dark Theme",
+    "iconTheme": "vs-seti",
+    "welcome.enabled": false
+  },
+  "window": {
+    "title": "${activeEditorMedium}${separator}${rootName}"
+  },
+
+  "gitProjectManager": {
+    "baseProjectsFolders": [
+      "/Users/solinvictus/Projects"
+    ],
+    "maxDepthRecursion": 2,
+    "checkRemoteOrigin": false,
+    "openInNewWindow": true
+  },
+
+  "ruby": {
+    "lint": {
+      "fasterer": true,
+      "reek": true,
+      "rubocop": true,
+      "ruby": true
+    }
+  },
+
+  "sync.gist": "fb3f715b61d795d332fa5d475a6ee3d7",
+  "sync.lastUpload": "2018-02-03T13:40:06.907Z",
+  "sync.autoDownload": false,
+  "sync.autoUpload": false,
+  "sync.lastDownload": "1970-01-01T00:00:00.000Z",
+  "sync.forceDownload": false,
+  "sync.anonymousGist": false,
+  "sync.host": "",
+  "sync.pathPrefix": "",
+  "sync.quietSync": false,
+  "sync.askGistName": false,
+  "workbench.colorTheme": "Atom One Dark",
+  "workbench.iconTheme": "file-icons",
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.statusBar.feedback.visible": false,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": false
+}
