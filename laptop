@@ -16,14 +16,14 @@ rm -rf ~/.laptop
 git clone git@github.com:markokajzer/laptop.git ~/.laptop  # &> /dev/null
 
 nl_echo "Creating global .gitconfig..."
-cp ~/.laptop/files/.git* ~
+cp ~/.laptop/files/git/* ~
 
 nl_echo "Creating .gemrc..."
 echo "gem: --no-document" >| ~/.gemrc
 
+
 nl_echo "Installing Command Line Tools..."
 xcode-select --install
-
 
 if ! command -v brew >/dev/null; then
   nl_echo "Installing Brew..."
@@ -114,16 +114,16 @@ else
 fi
 
 nl_echo "Overwriting runcoms..."
-cat ~/.laptop/files/.zpreztorc >| ~/.zpreztorc
-cat ~/.laptop/files/.zprofile  >| ~/.zprofile
-cat ~/.laptop/files/.zshrc     >| ~/.zshrc
+cat ~/.laptop/files/prezto/.zpreztorc >| ~/.zpreztorc
+cat ~/.laptop/files/prezto/.zprofile  >| ~/.zprofile
+cat ~/.laptop/files/prezto/.zshrc     >| ~/.zshrc
 
 nl_echo "Changing shell to zsh..."
 chsh -s "$(which zsh)"
 
 
 nl_echo "Syncing Atom Settings..."
-cp ~/.laptop/files/* ~/.atom/
+cp ~/.laptop/files/atom/* ~/.atom
 apm install sync-settings
 
 
