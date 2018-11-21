@@ -1,4 +1,4 @@
-LANG="de_DE.UTF-8"
+LANG="en_US.UTF-8"
 DEFAULT_USER=`whoami`
 
 # Fix resetting title after ssh sessions
