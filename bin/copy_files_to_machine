@@ -1,5 +1,11 @@
 #!/bin/bash
 
+printf "Overwrite files? [yN]  "
+read -r response
+if [[ ! "$response" = "y" ]]; then
+  exit
+fi
+
 if [[ -d ~/.atom ]]; then
   echo "Syncing Atom Settings..."
   cp files/atom/* ~/.atom
