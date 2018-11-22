@@ -1,13 +1,11 @@
 #!/bin/bash
 
-if [ -d ~/.atom ]
-then
+if [[ -d ~/.atom ]]; then
   echo "Syncing Atom Settings..."
   cp files/atom/* ~/.atom
 fi
 
-if [ -d "~/Library/Application Support/Code/User" ]
-then
+if [ -d "~/Library/Application Support/Code/User" ]; then
   echo "Syncing Code Settings..."
   cp files/code/* "~/Library/Application Support/Code/User"
 fi
