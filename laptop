@@ -58,9 +58,9 @@ if [[ "$response" = "y" ]]; then
   ruby_version="$(rbenv install -l | grep -v - | tail -1 | sed -e 's/^ *//')"
   rbenv install --skip-existing "$ruby_version"
   rbenv global "$ruby_version"
+
   gem update --system
   gem install bundler
-  rbenv rehash
 else
   echo "Skipping Ruby."
 fi
