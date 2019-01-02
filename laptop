@@ -80,7 +80,6 @@ applications=(
   atom
   flux
   google-chrome
-  java
 )
 for application in "${applications[@]}"; do
   echo "Installing $application..."
