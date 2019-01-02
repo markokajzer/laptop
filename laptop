@@ -40,8 +40,6 @@ packages=(
   zsh
   sqlite
   nodenv
-  node-build
-  yarn
 )
 for package in "${packages[@]}"; do
   brew install $package
