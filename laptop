@@ -18,9 +18,6 @@ git clone git@github.com:markokajzer/laptop.git ~/.laptop  # &> /dev/null
 nl_echo "Creating global .gitconfig..."
 cp ~/.laptop/files/git/* ~
 
-nl_echo "Creating .gemrc..."
-echo "gem: --no-document" >| ~/.gemrc
-
 
 nl_echo "Installing Command Line Tools..."
 xcode-select --install
@@ -55,6 +52,9 @@ echo
 printf "Do we need Ruby? [yN]  "
 read -r response
 if [[ "$response" = "y" ]]; then
+  nl_echo "Creating .gemrc..."
+  echo "gem: --no-document" >| ~/.gemrc
+
   brew install rbenv ruby-build
 
   ruby_version="$(rbenv install -l | grep -v - | tail -1 | sed -e 's/^ *//')"
