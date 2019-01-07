@@ -3,6 +3,8 @@
         email = markokajzer91@gmail.com
 [includeIf "gitdir:~/projects/fleetbutler/"]
         path = .gitconfig-moqo
+[includeIf "gitdir:~/projects/jimdo/"]
+        path = .gitconfig-jimdo
 [alias]
         co = checkout
         br = branch
@@ -15,7 +17,7 @@
 [credential]
         helper = osxkeychain
 [filter "lfs"]
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f
+        clean = git-lfs clean -- %f
+        smudge = git-lfs smudge -- %f
+        process = git-lfs filter-process
+        required = true
