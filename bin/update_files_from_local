@@ -7,14 +7,14 @@ if hash atom &>/dev/null; then
   cp ~/.atom/keymap.cson    files/atom/
   cp ~/.atom/snippets.cson  files/atom/
   cp ~/.atom/styles.less    files/atom/
-end
+fi
 
 if hash code &>/dev/null; then
   path=~/Library/Application\ Support/Code/User
   cp "$path/keybindings.json" files/code/
   cp "$path/locale.json"      files/code/
   cp "$path/settings.json"    files/code/
-end
+fi
 
 mkdir -p files/git/
 cp ~/.gitconfig       files/git/
