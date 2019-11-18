@@ -10,10 +10,14 @@
     "command": "editor.action.clipboardPasteAction",
     "when": "editorTextFocus && !editorReadonly"
   },
-
   {
     "key": "cmd+7",
     "command": "editor.action.commentLine",
     "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "escape",
+    "command": "workbench.action.closePanel",
+    "when": "searchViewletVisible"
   }
 ]

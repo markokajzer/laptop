@@ -3,12 +3,11 @@
   "breadcrumbs.enabled": true,
   "breadcrumbs.filePath": "off",
 
+  "editor.acceptSuggestionOnEnter": "on",
   "editor.accessibilitySupport": "off",
-  "editor.acceptSuggestionOnEnter": "off",
   "editor.dragAndDrop": false,
   "editor.fontFamily": "Fira Mono, Inconsolata-dz",
   "editor.fontSize": 14,
-  "editor.formatOnPaste": true,
   "editor.lineHeight": 22,
   "editor.minimap.enabled": true,
   "editor.minimap.renderCharacters": false,
@@ -20,26 +19,33 @@
   "editor.rulers": [100],
   "editor.tabSize": 2,
 
+  // "explorer.autoReveal": false,
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
   "explorer.openEditors.visible": 0,
 
-  "extensions.ignoreRecommendations": true,
+  "workbench.colorCustomizations": {
+    "editor.findMatchBackground": "#bbbbbb",
+    "editor.findMatchBorder": "#fff"
+  },
 
   "files.associations": {
-    "*.reek": "yml"
+    "*.reek": "yml",
+    ".prettierrc": "yaml"
   },
   "files.autoSave": "onFocusChange",
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
 
-  "scm.diffDecorationsGutterWidth": 2,
+  "references.preferredLocation": "view",
 
   "search.exclude": {
     "**/.git": true,
+    "**/.tmp": true,
     "**/bower_components": true,
     "**/coverage": true,
+    "**/dist": true,
     "**/node_modules": true,
     "**/tmp": true
   },
@@ -48,29 +54,22 @@
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
 
-  "terminal.explorerKind": "external",
-
   "workbench.activityBar.visible": true,
   "workbench.colorTheme": "One Dark Vivid",
   "workbench.enableExperiments": false,
   "workbench.iconTheme": "file-icons",
+  "workbench.list.horizontalScrolling": true,
   "workbench.startupEditor": "none",
-  "workbench.statusBar.feedback.visible": false,
-  "workbench.tree.horizontalScrolling": true,
   "workbench.view.alwaysShowHeaderActions": true,
 
   "window.title": "${activeEditorMedium}${separator}${rootName}",
 
-
-  // Languages
-  "typescript.updateImportsOnFileMove.enabled": "always",
-  "tslint.run": "onSave",
-
-
   // Extensions
-  "gitProjectManager.baseProjectsFolders": [
-    "~/projects"
-  ],
+  "extensions.ignoreRecommendations": true,
+  "scm.diffDecorationsGutterWidth": 4,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+
+  "gitProjectManager.baseProjectsFolders": ["~/projects"],
   "gitProjectManager.checkRemoteOrigin": false,
   "gitProjectManager.maxDepthRecursion": 2,
   "gitProjectManager.openInNewWindow": true,
@@ -80,7 +79,5 @@
   "sync.autoUpload": false,
   "sync.forceDownload": false,
   "sync.gist": "fb3f715b61d795d332fa5d475a6ee3d7",
-  "sync.lastDownload": "1970-01-01T00:00:00.000Z",
-  "sync.lastUpload": "2018-02-03T13:40:06.907Z",
-  "sync.quietSync": false
+  "sync.quietSync": false,
 }
