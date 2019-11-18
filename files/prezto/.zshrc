@@ -11,13 +11,42 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Inititalize rbenv
-if [ -x "$(command -v rbenv)" ]
-  then eval "$(rbenv init -)"
+# Folder commands
+project () { cd ~/projects/$1 }
+compdef '_files -W ~/projects -/' project
+alias p='project'
+
+studies () { cd ~/studies/$1 }
+compdef '_files -W ~/studies/ -/' studies
+alias s='studies'
+
+# Additional git config
+if [ -d "$HOME/projects/jimdo" ]; then
+  source "$HOME/projects/jimdo/.zshconfig"
 fi
 
+# git Alias
+alias ggpush='git push --set-upstream origin $(git symbolic-ref --short HEAD)'
+
+
+# Inititalize rbenv
+if [ -x "$(command -v rbenv)" ]; then
+  eval "$(rbenv init -)"
+fi
+
+# Ruby Alias
+alias rb='ruby'
+alias rs='rails server'
+alias rc='rails console'
+
+# Use rails-specific binstubs
+export PATH="./bin:$PATH"
+
+
 # Initialize nodenv
-eval "$(nodenv init -)"
+if [ -x "$(command -v nodenv)" ]; then
+  eval "$(nodenv init -)"
+fi
 
 
 # Use Homebrew sqlite3
@@ -26,17 +55,11 @@ export PATH="$(brew --prefix sqlite)/bin:$PATH"
 # Use brew python2
 export PATH="/usr/local/opt/python@2/libexec/bin:$PATH"
 
+# Use brew python3 as default
+# export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+
 # Use Postgres.app psql
 # export PATH="/Applications/Postgres.app/Contents/Versions/9.6/bin:$PATH"
-
-# Use rails-specific binstubs
-export PATH="./bin:$PATH"
-
-
-# Ruby Alias
-alias rb='ruby'
-alias rs='bin/rails server'
-alias rc='bin/rails console'
 
 # Python Alias
 alias py='python3'
@@ -46,23 +69,16 @@ alias py='python3'
 # alias pip='pip3'
 
 # Sublime Text 3 Alias
-alias sublime="'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'"
-alias subl="'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'"
+# alias sublime="'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'"
+# alias subl="'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'"
 
 # Heroku deploy Alias
-heroku() {
-  if [[ $@ == "deploy" ]]; then
-    command git push heroku master
-  else
-    command heroku "$@"
-  fi
-}
+# heroku() {
+#   if [[ $@ == "deploy" ]]; then
+#     command git push heroku master
+#   else
+#     command heroku "$@"
+#   fi
+# }
 
-# Folder commands
-project () { cd ~/projects/$1 }
-compdef '_files -W ~/projects -/' project
-alias p='project'
-
-studies () { cd ~/studies/$1 }
-compdef '_files -W ~/studies/ -/' studies
-alias s='studies'
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
