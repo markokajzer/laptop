@@ -1,23 +1,23 @@
 [user]
-        name = markokajzer
-        email = markokajzer91@gmail.com
+	name = markokajzer
+	email = markokajzer91@gmail.com
 [includeIf "gitdir:~/projects/fleetbutler/"]
-        path = .gitconfig-moqo
+	path = .gitconfig-moqo
 [includeIf "gitdir:~/projects/jimdo/"]
-        path = .gitconfig-jimdo
+	path = .gitconfig-jimdo
 [alias]
-        co = checkout
-        br = branch
-        ci = commit
-        st = status
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
 [push]
-        default = simple
+	default = simple
 [core]
-        excludesfile = ~/.gitignore
+	excludesfile = /Users/marko/.gitignore
 [credential]
-        helper = osxkeychain
+	helper = osxkeychain
 [filter "lfs"]
-        clean = git-lfs clean -- %f
-        smudge = git-lfs smudge -- %f
-        process = git-lfs filter-process
-        required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
