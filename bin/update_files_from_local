@@ -2,9 +2,9 @@
 
 if hash code &>/dev/null; then
   path=~/Library/Application\ Support/Code/User
-  cp "$path/keybindings.json" files/code/
-  cp "$path/locale.json"      files/code/
-  cp "$path/settings.json"    files/code/
+  cp    "$path/keybindings.json" files/code/
+  cp    "$path/settings.json"    files/code/
+  cp -r "$path/snippets"         files/code
 fi
 
 cp ~/.gitconfig       files/git/
