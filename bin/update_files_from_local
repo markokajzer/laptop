@@ -2,15 +2,15 @@
 
 if hash code &>/dev/null; then
   path=~/Library/Application\ Support/Code/User
-  cp    "$path/keybindings.json" files/code/
-  cp    "$path/settings.json"    files/code/
-  cp -r "$path/snippets"         files/code
+  cp    "$path/keybindings.json"  files/code/
+  cp    "$path/settings.json"     files/code/
+  cp -r "$path/snippets"          files/code
 fi
 
 cp ~/.gitconfig       files/git/
 cp ~/.gitconfig-moqo  files/git/
 cp ~/.gitignore       files/git/
 
-cp ~/.zpreztorc files/prezto/
-cp ~/.zprofile  files/prezto/
-cp ~/.zshrc     files/prezto/
+cp ~/.zpreztorc       files/prezto/
+cp ~/.zprofile        files/prezto/
+cp ~/.zshrc           files/prezto/
