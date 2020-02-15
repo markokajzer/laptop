@@ -49,7 +49,6 @@ sh -c "$(curl -fsSL https://raw.github.com/markokajzer/laptop/master/laptop)"
 
 **Applications:**
 
-* [Atom](http://atom.io) as a text editor.
 * [Google Chrome](https://www.google.com/chrome/) for browsing the web.
 * [Flux](https://justgetflux.com/) to adjust the display color for better sleep.
 

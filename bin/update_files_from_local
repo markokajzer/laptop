@@ -1,14 +1,5 @@
 #!/bin/bash
 
-if hash atom &>/dev/null; then
-  cp ~/.atom/config.cson    files/atom/
-  cp ~/.atom/github.cson    files/atom/
-  cp ~/.atom/init.coffee    files/atom/
-  cp ~/.atom/keymap.cson    files/atom/
-  cp ~/.atom/snippets.cson  files/atom/
-  cp ~/.atom/styles.less    files/atom/
-fi
-
 if hash code &>/dev/null; then
   path=~/Library/Application\ Support/Code/User
   cp "$path/keybindings.json" files/code/

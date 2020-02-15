@@ -6,11 +6,6 @@ if [[ ! "$response" = "y" ]]; then
   exit
 fi
 
-if [[ -d ~/.atom ]]; then
-  echo "Syncing Atom Settings..."
-  cp files/atom/* ~/.atom
-fi
-
 if [ -d "~/Library/Application Support/Code/User" ]; then
   echo "Syncing Code Settings..."
   cp files/code/* "~/Library/Application Support/Code/User"

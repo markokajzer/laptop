@@ -77,7 +77,6 @@ fi
 
 nl_echo "Installing Applications..."
 applications=(
-  atom
   flux
   google-chrome
 )
@@ -121,11 +120,6 @@ nl_echo "Changing shell to zsh..."
 chsh -s /bin/zsh
 
 
-nl_echo "Syncing Atom Settings..."
-cp ~/.laptop/files/atom/* ~/.atom
-apm install sync-settings
-
-
 nl_echo "Changing desktop wallpaper..."
 curl -o ~/.laptop/files/wallpaper.jpg $WALLPAPER_URL
 osascript -e "tell application \"system events\" to set picture of every desktop to (\"/Users/$(whoami)/.laptop/files/wallpaper.jpg\" as posix file as alias)"
@@ -134,6 +128,5 @@ osascript -e "tell application \"system events\" to set picture of every desktop
 nl_echo "Yuhu! Installation completed."
 nl_echo "Things left to do:"
 echo "[ ] Set Terminal profiles"
-echo "[ ] Sync Atom Settings"
 echo "[ ] Setup 1Password"
 echo "[ ] Install Postgres.app"
