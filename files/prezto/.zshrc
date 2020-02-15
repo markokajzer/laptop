@@ -36,6 +36,9 @@ if [ -x "$(command -v rbenv)" ]; then
   eval "$(rbenv init -)"
 fi
 
+# Use Homebrew OpenSSL with Ruby
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+
 # Ruby Alias
 alias rb='ruby'
 alias rs='rails server'
