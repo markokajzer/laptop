@@ -36,9 +36,8 @@ sh -c "$(curl -fsSL https://raw.github.com/markokajzer/laptop/master/laptop)"
 
 **Programming languages and configuration:**
 
-* [Ruby](https://www.ruby-lang.org/en/) to write general-purpose code. (optional)
-  * [rbenv](https://github.com/sstephenson/rbenv) for managing versions of Ruby.
-  * [ruby-build](https://github.com/sstephenson/ruby-build) for installing different versions of Ruby.
+* [rbenv](https://github.com/sstephenson/rbenv) for managing versions of Ruby.
+  * [Ruby](https://www.ruby-lang.org/en/) to write general-purpose code. (optional)
   * [Bundler](http://bundler.io/) for managing Ruby libraries.
 * [nodenv](https://github.com/nodenv/nodenv) for managing versions of Node.js.
 * [yarn](https://yarnpkg.com) for managing JavaScript packages.

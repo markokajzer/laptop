@@ -53,7 +53,7 @@ if [[ "$response" = "y" ]]; then
   nl_echo "Creating .gemrc..."
   echo "gem: --no-document" >| ~/.gemrc
 
-  brew install rbenv ruby-build
+  brew install rbenv
 
   ruby_version="$(rbenv install -l | grep -v - | tail -1 | sed -e 's/^ *//')"
   rbenv install --skip-existing "$ruby_version"
