@@ -26,8 +26,8 @@ sh -c "$(curl -fsSL https://raw.github.com/markokajzer/laptop/master/laptop)"
 
 **Fonts:**
 
-* [Fira Mono](https://fonts.google.com/specimen/Fira+Mono) as a monospace font.
 * [Inconsolata](https://fonts.google.com/specimen/Inconsolata) as the terminal font.
+* [Fira Mono](https://fonts.google.com/specimen/Fira+Mono) as a monospace font.
 
 **Color Schemes:**
 
@@ -36,15 +36,13 @@ sh -c "$(curl -fsSL https://raw.github.com/markokajzer/laptop/master/laptop)"
 
 **Programming languages and configuration:**
 
-* [rbenv](https://github.com/sstephenson/rbenv) for managing versions of Ruby.
-* [ruby-build](https://github.com/sstephenson/ruby-build) for installing different versions of Ruby.
-* Latest [Ruby](https://www.ruby-lang.org/en/) to write general-purpose code.
-* [Bundler](http://bundler.io/) for managing Ruby libraries.
+* [Ruby](https://www.ruby-lang.org/en/) to write general-purpose code. (optional)
+  * [rbenv](https://github.com/sstephenson/rbenv) for managing versions of Ruby.
+  * [ruby-build](https://github.com/sstephenson/ruby-build) for installing different versions of Ruby.
+  * [Bundler](http://bundler.io/) for managing Ruby libraries.
 * [nodenv](https://github.com/nodenv/nodenv) for managing versions of Node.js.
-* [node-build](https://github.com/nodenv/node-build) for installing different Node.js versions.
-* [yarn](https://yarnpkg.com) for installing JavaScript packages.
-* [java](https://www.java.com)
-* [Python 2 and 3](https://www.python.org/)
+* [yarn](https://yarnpkg.com) for managing JavaScript packages.
+* [Python 2 and 3](https://www.python.org/) as an all purpose language. (optional)
 * [SQLite](https://www.sqlite.org) as a development database.
 
 **Applications:**
@@ -52,9 +50,3 @@ sh -c "$(curl -fsSL https://raw.github.com/markokajzer/laptop/master/laptop)"
 * [Flux](https://justgetflux.com/) to adjust the display color for better sleep.
 * [Google Chrome](https://www.google.com/chrome/) for browsing the web.
 * [VS Code](https://code.visualstudio.com/) as a text editor.
-
-<!--
-* [Android Studio](https://developer.android.com/studio/index.html) to create Android Apps.
-* [Vagrant](https://www.vagrantup.com/) to create and configure development environments.
-* [VirtualBox](https://www.virtualbox.org/) to emulate guest operating systems.
--->
