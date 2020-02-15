@@ -11,6 +11,15 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
+# git Alias
+alias ggpush='git push --set-upstream origin $(git symbolic-ref --short HEAD)'
+
+# Additional git config
+if [ -d "$HOME/projects/jimdo" ]; then
+  source "$HOME/projects/jimdo/.zshconfig"
+fi
+
+
 # Folder commands
 project () { cd ~/projects/$1 }
 compdef '_files -W ~/projects -/' project
@@ -20,15 +29,8 @@ studies () { cd ~/studies/$1 }
 compdef '_files -W ~/studies/ -/' studies
 alias s='studies'
 
-# Additional git config
-if [ -d "$HOME/projects/jimdo" ]; then
-  source "$HOME/projects/jimdo/.zshconfig"
-fi
 
-# git Alias
-alias ggpush='git push --set-upstream origin $(git symbolic-ref --short HEAD)'
-
-
+# Ruby
 # Inititalize rbenv
 if [ -x "$(command -v rbenv)" ]; then
   eval "$(rbenv init -)"
@@ -49,20 +51,21 @@ if [ -x "$(command -v nodenv)" ]; then
 fi
 
 
-# Use Homebrew sqlite3
-export PATH="$(brew --prefix sqlite)/bin:$PATH"
-
 # Python
 # Use brew python3 as default
 # export PATH="/usr/local/opt/python/libexec/bin:$PATH"
-
-# Use Postgres.app psql
-# export PATH="/Applications/Postgres.app/Contents/Versions/9.6/bin:$PATH"
 
 # Python Alias
 alias py='python3'
 # alias python='python3'
 # alias pip='pip3'
+
+
+# Use Homebrew sqlite3
+export PATH="$(brew --prefix sqlite)/bin:$PATH"
+
+# Use Postgres.app psql
+# export PATH="/Applications/Postgres.app/Contents/Versions/9.6/bin:$PATH"
 
 
 # Heroku deploy Alias
