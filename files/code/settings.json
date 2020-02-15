@@ -40,6 +40,9 @@
 
   "references.preferredLocation": "view",
 
+  "scm.defaultViewMode": "tree",
+  "scm.diffDecorationsGutterWidth": 4,
+
   "search.exclude": {
     "**/.git": true,
     "**/.tmp": true,
@@ -49,7 +52,6 @@
     "**/node_modules": true,
     "**/tmp": true
   },
-  "search.location": "panel",
 
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
@@ -66,18 +68,16 @@
 
   // Extensions
   "extensions.ignoreRecommendations": true,
-  "scm.diffDecorationsGutterWidth": 4,
+  "javascript.updateImportsOnFileMove.enabled": "always",
   "typescript.updateImportsOnFileMove.enabled": "always",
 
-  "gitProjectManager.baseProjectsFolders": ["~/projects"],
-  "gitProjectManager.checkRemoteOrigin": false,
-  "gitProjectManager.maxDepthRecursion": 2,
-  "gitProjectManager.openInNewWindow": true,
+  "discord.silent": true,
 
-  "sync.askGistName": false,
   "sync.autoDownload": false,
   "sync.autoUpload": false,
   "sync.forceDownload": false,
   "sync.gist": "fb3f715b61d795d332fa5d475a6ee3d7",
   "sync.quietSync": false,
+
+  "window.zoomLevel": 0
 }
