@@ -5,6 +5,8 @@ if hash code &>/dev/null; then
   cp    "$path/keybindings.json"  files/code/
   cp    "$path/settings.json"     files/code/
   cp -r "$path/snippets"          files/code
+
+  code --list-extensions > files/code/extensions.txt
 fi
 
 cp ~/.gitconfig       files/git/

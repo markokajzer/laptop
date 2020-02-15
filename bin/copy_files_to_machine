@@ -7,8 +7,12 @@ if [[ ! "$response" = "y" ]]; then
 fi
 
 if [ -d "~/Library/Application Support/Code/User" ]; then
-  echo "Syncing Code Settings..."
+  echo "Syncing Code Settings and installing extensions"
   cp files/code/* "~/Library/Application Support/Code/User"
+
+  while read extension; do
+    code --install-extension "$extension"
+  done < files/code/extensions.txt
 fi
 
 echo "Updating global git config..."
