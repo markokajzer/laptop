@@ -79,6 +79,7 @@ nl_echo "Installing Applications..."
 applications=(
   flux
   google-chrome
+  visual-studio-code
 )
 for application in "${applications[@]}"; do
   echo "Installing $application..."

@@ -51,6 +51,7 @@ sh -c "$(curl -fsSL https://raw.github.com/markokajzer/laptop/master/laptop)"
 
 * [Flux](https://justgetflux.com/) to adjust the display color for better sleep.
 * [Google Chrome](https://www.google.com/chrome/) for browsing the web.
+* [VS Code](https://code.visualstudio.com/) as a text editor.
 
 <!--
 * [Android Studio](https://developer.android.com/studio/index.html) to create Android Apps.
