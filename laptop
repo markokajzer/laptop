@@ -6,7 +6,7 @@ nl_echo() {
 }
 
 
-WALLPAPER_URL="https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-618958.jpg"
+WALLPAPER_URL="https://w.wallhaven.cc/full/x1/wallhaven-x1rowv.jpg"
 
 
 mkdir -p ~/projects
