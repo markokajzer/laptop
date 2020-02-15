@@ -85,9 +85,6 @@ for application in "${applications[@]}"; do
   brew cask install $application
 done
 
-nl_echo "Skipping Android Studio..."
-echo    "Skipping virtualbox vagrant..."
-
 nl_echo "Installing fonts..."
 brew tap caskroom/fonts
 brew cask install font-fira-mono

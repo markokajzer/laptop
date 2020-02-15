@@ -7,12 +7,10 @@ if hash code &>/dev/null; then
   cp "$path/settings.json"    files/code/
 fi
 
-mkdir -p files/git/
 cp ~/.gitconfig       files/git/
 cp ~/.gitconfig-moqo  files/git/
 cp ~/.gitignore       files/git/
 
-mkdir -p files/prezto/
 cp ~/.zpreztorc files/prezto/
 cp ~/.zprofile  files/prezto/
 cp ~/.zshrc     files/prezto/

@@ -49,8 +49,8 @@ sh -c "$(curl -fsSL https://raw.github.com/markokajzer/laptop/master/laptop)"
 
 **Applications:**
 
-* [Google Chrome](https://www.google.com/chrome/) for browsing the web.
 * [Flux](https://justgetflux.com/) to adjust the display color for better sleep.
+* [Google Chrome](https://www.google.com/chrome/) for browsing the web.
 
 <!--
 * [Android Studio](https://developer.android.com/studio/index.html) to create Android Apps.
