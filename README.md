@@ -41,7 +41,7 @@ sh -c "$(curl -fsSL https://raw.github.com/markokajzer/laptop/master/laptop)"
   * [Bundler](http://bundler.io/) for managing Ruby libraries.
 * [nodenv](https://github.com/nodenv/nodenv) for managing versions of Node.js.
 * [yarn](https://yarnpkg.com) for managing JavaScript packages.
-* [Python 2 and 3](https://www.python.org/) as an all purpose language. (optional)
+* [Python 3](https://www.python.org/) as an all purpose language. (optional)
 * [SQLite](https://www.sqlite.org) as a development database.
 
 **Applications:**

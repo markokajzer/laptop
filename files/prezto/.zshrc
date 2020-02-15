@@ -52,9 +52,7 @@ fi
 # Use Homebrew sqlite3
 export PATH="$(brew --prefix sqlite)/bin:$PATH"
 
-# Use brew python2
-export PATH="/usr/local/opt/python@2/libexec/bin:$PATH"
-
+# Python
 # Use brew python3 as default
 # export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
@@ -63,8 +61,6 @@ export PATH="/usr/local/opt/python@2/libexec/bin:$PATH"
 
 # Python Alias
 alias py='python3'
-# alias python2='/usr/local/bin/python'
-# alias pip2='/usr/local/bin/pip'
 # alias python='python3'
 # alias pip='pip3'
 

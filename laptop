@@ -69,7 +69,7 @@ echo
 printf "Do we need Python? [yN]  "
 read -r response
 if [[ "$response" = "y" ]]; then
-  brew install python@2 python pipenv
+  brew install python pipenv
 else
   echo "Skipping Python."
 fi
