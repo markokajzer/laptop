@@ -64,9 +64,6 @@ alias py='python3'
 # alias python='python3'
 # alias pip='pip3'
 
-# Sublime Text 3 Alias
-# alias sublime="'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'"
-# alias subl="'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'"
 
 # Heroku deploy Alias
 # heroku() {
