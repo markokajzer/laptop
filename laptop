@@ -45,6 +45,18 @@ for package in "${packages[@]}"; do
   brew install $package
 done
 
+nl_echo "Installing Applications..."
+applications=(
+  1password
+  flux
+  google-chrome
+  spotify
+  visual-studio-code
+)
+for application in "${applications[@]}"; do
+  nl_echo "Installing $application..."
+  brew cask install $application
+done
 
 echo
 printf "Do we need Ruby? [yN]  "
@@ -74,18 +86,6 @@ else
   echo "Skipping Python."
 fi
 
-
-nl_echo "Installing Applications..."
-applications=(
-  1password
-  flux
-  google-chrome
-  visual-studio-code
-)
-for application in "${applications[@]}"; do
-  nl_echo "Installing $application..."
-  brew cask install $application
-done
 
 nl_echo "Installing fonts..."
 brew tap caskroom/fonts
