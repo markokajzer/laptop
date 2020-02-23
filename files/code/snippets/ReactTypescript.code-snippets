@@ -24,7 +24,7 @@
       "",
       "interface Props {$2}",
       "",
-      "const ${1:Component}: React.FunctionComponent<Props> = props => {",
+      "const ${1:Component}: React.FC<Props> = props => {",
       "\treturn ${3:null};",
       "}",
       "",
