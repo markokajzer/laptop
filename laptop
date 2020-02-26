@@ -127,9 +127,20 @@ nl_echo "Changing shell to zsh..."
 chsh -s /bin/zsh
 
 
+nl_echo "Changing Active Edges..."
+# None = 1, Mission Control = 2, Application Windows = 3, Desktop = 4, Screen Saver = 5
+# Disable Screen Saver = 6, Dashboard = 7, Sleep Mode = 10, Launchpad = 11, Notification Center = 12
+# defaults write com.apple.dock wvous-bl-corner -int 3
+defaults write com.apple.dock wvous-br-corner -int 4
+
+
 nl_echo "Changing desktop wallpaper..."
 curl -o ~/.laptop/files/wallpaper.jpg $WALLPAPER_URL
 osascript -e "tell application \"system events\" to set picture of every desktop to (\"/Users/$(whoami)/.laptop/files/wallpaper.jpg\" as posix file as alias)"
+
+
+nl_echo "Restarting affected applications..."
+killall Dock Finder
 
 
 nl_echo "Yuhu! Installation completed."
