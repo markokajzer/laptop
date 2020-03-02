@@ -6,17 +6,18 @@ nl_echo() {
 }
 
 
+LAPTOP_FOLDER="$HOME/projects/laptop"
 WALLPAPER_URL="https://w.wallhaven.cc/full/x1/wallhaven-x1rowv.jpg"
 
 
 mkdir -p ~/projects
 
 nl_echo "Cloning laptop..."
-rm -rf ~/.laptop
-git clone git@github.com:markokajzer/laptop.git ~/.laptop  # &> /dev/null
+rm -rf $LAPTOP_FOLDER
+git clone git@github.com:markokajzer/laptop.git $LAPTOP_FOLDER  # &> /dev/null
 
 nl_echo "Creating global .gitconfig..."
-cp ~/.laptop/files/git/* ~
+cp -a $LAPTOP_FOLDER/files/git/. ~
 
 
 nl_echo "Installing Command Line Tools..."
@@ -112,9 +113,9 @@ else
 fi
 
 nl_echo "Overwriting runcoms..."
-cat ~/.laptop/files/prezto/.zpreztorc >| ~/.zpreztorc
-cat ~/.laptop/files/prezto/.zprofile  >| ~/.zprofile
-cat ~/.laptop/files/prezto/.zshrc     >| ~/.zshrc
+cat $LAPTOP_FOLDER/files/prezto/.zpreztorc >| ~/.zpreztorc
+cat $LAPTOP_FOLDER/files/prezto/.zprofile  >| ~/.zprofile
+cat $LAPTOP_FOLDER/files/prezto/.zshrc     >| ~/.zshrc
 
 nl_echo "Generating RSA token for GitHub..."
 mkdir -p ~/.ssh
@@ -136,8 +137,8 @@ defaults write com.apple.dock wvous-br-corner -int 4
 
 
 nl_echo "Changing desktop wallpaper..."
-curl -o ~/.laptop/files/wallpaper.jpg $WALLPAPER_URL
-osascript -e "tell application \"system events\" to set picture of every desktop to (\"/Users/$(whoami)/.laptop/files/wallpaper.jpg\" as posix file as alias)"
+curl -o $LAPTOP_FOLDER/files/wallpaper.jpg $WALLPAPER_URL
+osascript -e "tell application \"system events\" to set picture of every desktop to (\"$LAPTOP_FOLDER/files/wallpaper.jpg\" as posix file as alias)"
 
 
 nl_echo "Restarting affected applications..."
