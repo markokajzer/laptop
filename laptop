@@ -90,7 +90,7 @@ fi
 
 
 nl_echo "Installing fonts..."
-brew tap caskroom/fonts
+brew tap homebrew/cask-fonts
 brew cask install font-fira-mono
 brew cask install font-inconsolata-dz-for-powerline
 
