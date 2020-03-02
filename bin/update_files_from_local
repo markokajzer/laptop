@@ -1,10 +1,10 @@
 #!/bin/bash
 
 if hash code &>/dev/null; then
-  path=~/Library/Application\ Support/Code/User
-  cp    "$path/keybindings.json"  files/code/
-  cp    "$path/settings.json"     files/code/
-  cp -r "$path/snippets"          files/code
+  VSCODE_FOLDER="$HOME/Library/Application Support/Code/User"
+  cp    "$VSCODE_FOLDER/keybindings.json"  files/code/
+  cp    "$VSCODE_FOLDER/settings.json"     files/code/
+  cp -r "$VSCODE_FOLDER/snippets"          files/code
 
   code --list-extensions > files/code/extensions.txt
 fi
