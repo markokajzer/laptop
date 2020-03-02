@@ -96,7 +96,6 @@ brew cask install font-inconsolata-dz-for-powerline
 
 nl_echo "Cleaning up Brew..."
 brew cleanup -s
-brew cask cleanup
 
 
 if [[ ! -d ~/.zprezto ]]; then
