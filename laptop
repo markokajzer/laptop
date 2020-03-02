@@ -137,6 +137,9 @@ defaults write com.apple.dock wvous-br-corner -int 4
 # Disable Terminal markers
 defaults write com.apple.Terminal AutoMarkPromptLines -bool NO
 
+# Always show expanded control strip on Touchbar
+defaults write com.apple.touchbar.agent PresentationModeGlobal fullControlStrip
+
 
 nl_echo "Changing desktop wallpaper..."
 curl -o $LAPTOP_FOLDER/files/wallpaper.jpg $WALLPAPER_URL
@@ -144,7 +147,7 @@ osascript -e "tell application \"system events\" to set picture of every desktop
 
 
 nl_echo "Restarting affected applications..."
-killall Dock Finder
+killall ControlStrip Dock Finder
 
 
 nl_echo "Yuhu! Installation completed."
