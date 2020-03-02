@@ -6,9 +6,10 @@ if [[ ! "$response" = "y" ]]; then
   exit
 fi
 
-if [ -d "~/Library/Application Support/Code/User" ]; then
+VSCODE_FOLDER="$HOME/Library/Application Support/Code/User"
+if [[ -d "$VSCODE_FOLDER" ]]; then
   echo "Syncing Code Settings and installing extensions"
-  cp files/code/* "~/Library/Application Support/Code/User"
+  cp -a ./files/code/. "$VSCODE_FOLDER"
 
   while read extension; do
     code --install-extension "$extension"
@@ -16,7 +17,7 @@ if [ -d "~/Library/Application Support/Code/User" ]; then
 fi
 
 echo "Updating global git config..."
-cp files/git/* ~
+cp -a files/git/. ~
 
 echo "Overwriting runcoms..."
 cat files/prezto/.zpreztorc >| ~/.zpreztorc
