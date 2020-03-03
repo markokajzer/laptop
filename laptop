@@ -135,7 +135,7 @@ nl_echo "Changing Active Edges..."
 defaults write com.apple.dock wvous-br-corner -int 4
 
 # Disable Terminal markers
-defaults write com.apple.Terminal AutoMarkPromptLines -bool NO
+defaults write com.apple.Terminal AutoMarkPromptLines -bool false
 
 # Always show expanded control strip on Touchbar
 defaults write com.apple.touchbar.agent PresentationModeGlobal fullControlStrip
