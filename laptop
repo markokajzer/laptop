@@ -147,6 +147,9 @@ defaults write NSGlobalDomain KeyRepeat -int 2
 # InitialKeyRepeat: 120, 94, 68, 35, 25, 15
 defaults write NSGlobalDomain KeyRepeat -int 15
 
+# Do not hide Library folder
+chflags nohidden ~/Library
+
 
 nl_echo "Changing desktop wallpaper..."
 curl -o $LAPTOP_FOLDER/files/wallpaper.jpg $WALLPAPER_URL
