@@ -10,6 +10,8 @@
 	br = branch
 	ci = commit
 	st = status
+[pull]
+	rebase = true
 [push]
 	default = simple
 [core]
@@ -21,3 +23,5 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[init]
+	defaultBranch = main
