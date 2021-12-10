@@ -6,16 +6,6 @@ if [[ ! "$response" = "y" ]]; then
   exit
 fi
 
-VSCODE_FOLDER="$HOME/Library/Application Support/Code/User"
-if [[ -d "$VSCODE_FOLDER" ]]; then
-  echo "Syncing Code Settings and installing extensions"
-  cp -a ./files/code/. "$VSCODE_FOLDER"
-
-  while read extension; do
-    code --install-extension "$extension"
-  done < files/code/extensions.txt
-fi
-
 echo "Updating global git config..."
 cp -a files/git/. ~
 

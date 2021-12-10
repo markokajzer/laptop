@@ -1,14 +1,5 @@
 #!/bin/bash
 
-if hash code &>/dev/null; then
-  VSCODE_FOLDER="$HOME/Library/Application Support/Code/User"
-  cp    "$VSCODE_FOLDER/keybindings.json"  files/code/
-  cp    "$VSCODE_FOLDER/settings.json"     files/code/
-  cp -r "$VSCODE_FOLDER/snippets"          files/code
-
-  code --list-extensions > files/code/extensions.txt
-fi
-
 cp ~/.gitconfig       files/git/
 cp ~/.gitconfig-moqo  files/git/
 cp ~/.gitconfig-jimdo files/git/
