@@ -1,5 +1,5 @@
 [user]
-	name = markokajzer
+	name = Marko Kajzer
 	email = markokajzer91@gmail.com
 [includeIf "gitdir:~/projects/fleetbutler/"]
 	path = .gitconfig-moqo
