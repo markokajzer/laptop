@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cp ~/.asdfrc          files/asdf/
+
 cp ~/.gitconfig       files/git/
 cp ~/.gitconfig-moqo  files/git/
 cp ~/.gitconfig-jimdo files/git/

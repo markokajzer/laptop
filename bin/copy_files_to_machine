@@ -6,8 +6,11 @@ if [[ ! "$response" = "y" ]]; then
   exit
 fi
 
+echo "Updating global asdf config..."
+cp files/asdf/.asdfrc     ~/.asdfrc
+
 echo "Updating global git config..."
-cp -a files/git/. ~
+cp -a files/git/.         ~
 
 echo "Overwriting runcoms..."
 cat files/prezto/.zpreztorc >| ~/.zpreztorc
