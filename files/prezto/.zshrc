@@ -30,16 +30,16 @@ compdef '_files -W ~/studies/ -/' studies
 alias s='studies'
 
 
-# Ruby
-# Inititalize rbenv
-if [ -x "$(command -v rbenv)" ]; then
-  eval "$(rbenv init -)"
-fi
-
 # Use Apple Silicon homebrew
 export PATH="/opt/homebrew/bin:$PATH"
 # Use Homebrew OpenSSL with Ruby
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+
+# Inititalize asdf version manager
+if [ -x "$(which asdf)" ]; then
+  . $(brew --prefix asdf)/libexec/asdf.sh
+fi
+
 
 # Ruby Alias
 alias rb='ruby'
@@ -48,12 +48,6 @@ alias rc='rails console'
 
 # Use rails-specific binstubs
 export PATH="./bin:$PATH"
-
-
-# Initialize nodenv
-if [ -x "$(command -v nodenv)" ]; then
-  eval "$(nodenv init -)"
-fi
 
 
 # Python
