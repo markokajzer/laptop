@@ -10,14 +10,17 @@
 	br = branch
 	ci = commit
 	st = status
+	fomo = !git fetch origin main && git rebase origin/main
 [pull]
 	rebase = true
 [push]
 	default = simple
+	autoSetupRemote = true
 [core]
 	excludesfile = /Users/marko/.gitignore
 [credential]
 	helper = osxkeychain
+	username = markokajzer
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
