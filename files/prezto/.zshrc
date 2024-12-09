@@ -32,8 +32,13 @@ alias s='studies'
 
 # Use Apple Silicon homebrew
 export PATH="/opt/homebrew/bin:$PATH"
+# Do not auto update brew packages
+export HOMEBREW_NO_AUTO_UPDATE=1
+# export HOMEBREW_GITHUB_API_TOKEN=ghp_gibberish
+
 # Use Homebrew OpenSSL with Ruby
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+
 
 # Inititalize asdf version manager
 if [ -x "$(which asdf)" ]; then
@@ -42,22 +47,28 @@ fi
 
 
 # Ruby Alias
-alias rb='ruby'
 alias rs='rails server'
 alias rc='rails console'
 
 # Use rails-specific binstubs
-export PATH="./bin:$PATH"
+# export PATH="./bin:$PATH"
 
 
 # Python
 # Use brew python3 as default
-# export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+# export PATH="$(brew --prefix python@3)/libexec/bin:$PATH"
 
 # Python Alias
-alias py='python3'
+# alias py='python3'
 # alias python='python3'
 # alias pip='pip3'
+
+
+# Go (infra-monitoring)
+export GOPATH=$HOME/go
+export GOROOT="$(brew --prefix go)/libexec"
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOROOT/bin
 
 
 # Use Homebrew sqlite3
@@ -77,3 +88,10 @@ export PATH="$(brew --prefix sqlite)/bin:$PATH"
 # }
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+# Skip node trying to install chromium
+export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
+export PUPPETEER_EXECUTABLE_PATH=`which chromium`
+
+# Use ~/.webdrivers chromedriver
+export PATH=~/.webdrivers:$PATH
