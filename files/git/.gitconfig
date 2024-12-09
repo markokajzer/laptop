@@ -10,7 +10,9 @@
 	br = branch
 	ci = commit
 	st = status
+
 	fomo = !git fetch origin main && git rebase origin/main
+	cia = !git commit --all --amend --no-edit
 [pull]
 	rebase = true
 [push]
