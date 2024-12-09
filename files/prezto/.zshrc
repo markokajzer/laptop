@@ -81,7 +81,7 @@ export PATH="$(brew --prefix sqlite)/bin:$PATH"
 # Heroku deploy Alias
 # heroku() {
 #   if [[ $@ == "deploy" ]]; then
-#     command git push heroku master
+#     command git push heroku main
 #   else
 #     command heroku "$@"
 #   fi

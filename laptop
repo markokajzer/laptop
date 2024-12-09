@@ -25,7 +25,7 @@ xcode-select --install
 
 if ! command -v brew >/dev/null; then
   nl_echo "Installing Brew..."
-  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/main/install)"
 else
   nl_echo "Updating Brew..."
   brew update

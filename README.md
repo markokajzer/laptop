@@ -8,7 +8,7 @@ This script can be ran once or as many times as you'd like. It installs everythi
 ## Install
 
 ```sh
-sh -c "$(curl -fsSL https://raw.github.com/markokajzer/laptop/master/laptop)"
+sh -c "$(curl -fsSL https://raw.github.com/markokajzer/laptop/main/laptop)"
 ```
 
 ## What You Get
