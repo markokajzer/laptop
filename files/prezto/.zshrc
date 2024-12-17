@@ -11,7 +11,8 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# git Alias
+# git
+alias g='git'
 alias ggpush='git push --set-upstream origin $(git symbolic-ref --short HEAD)'
 
 # Additional git config
