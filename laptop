@@ -31,6 +31,13 @@ else
   brew update
 fi
 
+
+nl_echo "Installing fonts..."
+brew tap homebrew/cask-fonts
+brew install font-fira-mono
+brew install font-inconsolata-dz-for-powerline
+
+
 nl_echo "Installing Brew packages..."
 packages=(
   asdf
@@ -65,12 +72,15 @@ if [[ "$response" = "y" ]]; then
   nl_echo "Creating .gemrc..."
   echo "gem: --no-document" >| ~/.gemrc
 
-  brew install rbenv
+  nl_echo "Setting up asdf Ruby plugin..."
+  asdf plugin add ruby
 
-  ruby_version="$(rbenv install -l | grep -v - | tail -1 | sed -e 's/^ *//')"
-  rbenv install --skip-existing "$ruby_version"
-  rbenv global "$ruby_version"
+  nl_echo "Installing latest stable Ruby..."
+  ruby_version="$(asdf list all ruby | grep -E '^\d+\.\d+\.\d+$' | tail -1)"
+  asdf install ruby "$ruby_version"
+  asdf set --home ruby "$ruby_version"
 
+  nl_echo "Updating RubyGems and installing bundler..."
   gem update --system
   gem install bundler
 else
@@ -86,11 +96,6 @@ else
   echo "Skipping Python."
 fi
 
-
-nl_echo "Installing fonts..."
-brew tap homebrew/cask-fonts
-brew install font-fira-mono
-brew install font-inconsolata-dz-for-powerline
 
 nl_echo "Cleaning up Brew..."
 brew cleanup -s
