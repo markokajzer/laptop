@@ -49,7 +49,6 @@ done
 nl_echo "Installing Applications..."
 applications=(
   1password
-  flux
   github
   google-chrome
   spotify
