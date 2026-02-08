@@ -65,6 +65,10 @@ for application in "${applications[@]}"; do
   brew cask install $application
 done
 
+nl_echo "Cleaning up Brew..."
+brew cleanup -s
+
+
 echo
 printf "Do we need Ruby? [yN]  "
 read -r response
@@ -108,9 +112,8 @@ fi
 nl_echo "Setting up asdf Node plugin..."
 asdf plugin add nodejs
 
-
-nl_echo "Cleaning up Brew..."
-brew cleanup -s
+nl_echo "Reshimming asdf..."
+asdf reshim
 
 
 if [[ ! -d ~/.zprezto ]]; then
