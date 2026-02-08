@@ -31,15 +31,24 @@ compdef '_files -W ~/studies/ -/' studies
 alias s='studies'
 
 
+##################################
+# Homebrew
+##################################
+
 # Use Apple Silicon homebrew
 export PATH="/opt/homebrew/bin:$PATH"
 # Do not auto update brew packages
 export HOMEBREW_NO_AUTO_UPDATE=1
 # export HOMEBREW_GITHUB_API_TOKEN=ghp_gibberish
-
 # Use Homebrew OpenSSL with Ruby
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+# Use Homebrew sqlite3
+export PATH="$(brew --prefix sqlite)/bin:$PATH"
 
+
+##################################
+# asdf
+##################################
 
 # Inititalize asdf version manager
 if [ -x "$(which asdf)" ]; then
@@ -47,6 +56,22 @@ if [ -x "$(which asdf)" ]; then
 fi
 
 
+##################################
+# Extra binaries
+##################################
+# Add local bin to path
+export PATH="$HOME/.local/bin:$PATH"
+# Add yarn global bin to path
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+# Use Postgres.app psql
+# export PATH="/Applications/Postgres.app/Contents/Versions/9.6/bin:$PATH"
+# libpq on Apple Silicon
+export PATH="$(brew --prefix libpq)/bin:$PATH"
+
+
+##################################
+# Ruby / Rails
+##################################
 # Ruby Alias
 alias rs='rails server'
 alias rc='rails console'
@@ -54,8 +79,19 @@ alias rc='rails console'
 # Use rails-specific binstubs
 # export PATH="./bin:$PATH"
 
+# Rails error pages
+export RAILS_EDITOR="code"
 
+# Disable fork safety for Ruby on Apple Silicon
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
+# Use ~/.webdrivers chromedriver
+export PATH=~/.webdrivers:$PATH
+
+
+##################################
 # Python
+##################################
 # Use brew python3 as default
 # export PATH="$(brew --prefix python@3)/libexec/bin:$PATH"
 
@@ -64,19 +100,19 @@ alias rc='rails console'
 # alias python='python3'
 # alias pip='pip3'
 
+# Enable uv env
+. "$HOME/.local/bin/env"
+export UV_ENV_FILE=.env
 
-# Go (infra-monitoring)
+
+##################################
+# Go
+##################################
+# infra-monitoring
 export GOPATH=$HOME/go
 export GOROOT="$(brew --prefix go)/libexec"
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
-
-
-# Use Homebrew sqlite3
-export PATH="$(brew --prefix sqlite)/bin:$PATH"
-
-# Use Postgres.app psql
-# export PATH="/Applications/Postgres.app/Contents/Versions/9.6/bin:$PATH"
 
 
 # Heroku deploy Alias
@@ -88,11 +124,7 @@ export PATH="$(brew --prefix sqlite)/bin:$PATH"
 #   fi
 # }
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # Skip node trying to install chromium
 export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
 export PUPPETEER_EXECUTABLE_PATH=`which chromium`
-
-# Use ~/.webdrivers chromedriver
-export PATH=~/.webdrivers:$PATH
