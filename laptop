@@ -105,6 +105,9 @@ else
   echo "Skipping Python."
 fi
 
+nl_echo "Setting up asdf Node plugin..."
+asdf plugin add nodejs
+
 
 nl_echo "Cleaning up Brew..."
 brew cleanup -s
