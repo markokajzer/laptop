@@ -33,14 +33,14 @@ fi
 
 nl_echo "Installing Brew packages..."
 packages=(
+  asdf
   autoconf
   automake
-  readline
-  openssl
   git
-  zsh
+  openssl
+  readline
   sqlite
-  nodenv
+  zsh
 )
 for package in "${packages[@]}"; do
   brew install $package
