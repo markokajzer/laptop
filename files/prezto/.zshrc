@@ -101,7 +101,7 @@ export PATH=~/.webdrivers:$PATH
 # alias pip='pip3'
 
 # Enable uv env
-. "$HOME/.local/bin/env"
+[ -f "$HOME/.local/bin/env" ] && . "$HOME/.local/bin/env"
 export UV_ENV_FILE=.env
 
 
