@@ -40,10 +40,10 @@ brew install font-inconsolata-dz-for-powerline
 
 nl_echo "Installing Brew packages..."
 packages=(
-  asdf
   autoconf
   automake
   git
+  mise
   openssl
   sqlite
   zsh
@@ -76,13 +76,9 @@ if [[ "$response" = "y" ]]; then
   nl_echo "Creating .gemrc..."
   echo "gem: --no-document" >| ~/.gemrc
 
-  nl_echo "Setting up asdf Ruby plugin..."
-  asdf plugin add ruby
-
   nl_echo "Installing latest stable Ruby..."
-  ruby_version="$(asdf list all ruby | grep -E '^\d+\.\d+\.\d+$' | tail -1)"
-  asdf install ruby "$ruby_version"
-  asdf set --home ruby "$ruby_version"
+  ruby_version="$(mise ls-remote ruby | grep -E '^\d+\.\d+\.\d+$' | tail -1)"
+  mise use -g ruby@"$ruby_version"
 
   nl_echo "Updating RubyGems and installing bundler..."
   gem update --system
@@ -95,13 +91,9 @@ echo
 printf "Do we need Python? [yN]  "
 read -r response
 if [[ "$response" = "y" ]]; then
-  nl_echo "Setting up asdf Python plugin..."
-  asdf plugin add python
-
   nl_echo "Installing latest stable Python..."
-  python_version="$(asdf list all python | grep -E '^\d+\.\d+\.\d+$' | tail -1)"
-  asdf install python "$python_version"
-  asdf set --home python "$python_version"
+  python_version="$(mise ls-remote python | grep -E '^\d+\.\d+\.\d+$' | tail -1)"
+  mise use -g python@"$python_version"
 
   nl_echo "Updating pip..."
   pip install --upgrade pip
@@ -109,11 +101,6 @@ else
   echo "Skipping Python."
 fi
 
-nl_echo "Setting up asdf Node plugin..."
-asdf plugin add nodejs
-
-nl_echo "Reshimming asdf..."
-asdf reshim
 
 
 if [[ ! -d ~/.zprezto ]]; then

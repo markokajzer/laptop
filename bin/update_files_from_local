@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cp ~/.asdfrc          files/asdf/
+cp ~/.config/mise/*  files/mise/
 
 cp ~/.gitconfig       files/git/
 cp ~/.gitconfig-moqo  files/git/

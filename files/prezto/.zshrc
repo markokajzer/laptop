@@ -30,6 +30,14 @@ studies () { cd ~/studies/$1 }
 compdef '_files -W ~/studies/ -/' studies
 alias s='studies'
 
+##################################
+# Extra binaries
+##################################
+# Add local bin to path
+export PATH="$HOME/.local/bin:$PATH"
+# Add yarn global bin to path
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
 
 ##################################
 # Homebrew
@@ -44,29 +52,20 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 # Use Homebrew sqlite3
 export PATH="$(brew --prefix sqlite)/bin:$PATH"
-
-
-##################################
-# asdf
-##################################
-
-# Inititalize asdf version manager
-if [ -x "$(which asdf)" ]; then
-  . $(brew --prefix asdf)/libexec/asdf.sh
-fi
-
-
-##################################
-# Extra binaries
-##################################
-# Add local bin to path
-export PATH="$HOME/.local/bin:$PATH"
-# Add yarn global bin to path
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 # Use Postgres.app psql
 # export PATH="/Applications/Postgres.app/Contents/Versions/9.6/bin:$PATH"
 # libpq on Apple Silicon
 export PATH="$(brew --prefix libpq)/bin:$PATH"
+
+
+##################################
+# mise
+##################################
+
+# Inititalize mise
+if [ -x "$(which mise)" ]; then
+  eval "$(mise activate zsh)"
+fi
 
 
 ##################################
