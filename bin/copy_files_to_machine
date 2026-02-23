@@ -10,6 +10,12 @@ fi
 echo "Updating global git config..."
 cp -a files/git/.         ~
 
+echo "Copying env files (skip existing)..."
+mkdir -p ~/.config/env
+for f in files/env/.*; do
+  [ -f "$f" ] && cp -n "$f" ~/.config/env/
+done
+
 echo "Updating global mise config..."
 mkdir -p ~/.config/mise
 cp files/mise/config.toml ~/.config/mise/config.toml

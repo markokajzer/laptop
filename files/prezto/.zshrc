@@ -20,6 +20,11 @@ if [ -d "$HOME/projects/jimdo" ]; then
   source "$HOME/projects/jimdo/.zshconfig"
 fi
 
+# Additional env
+for f in "$HOME/.config/env/".*; do
+  [ -f "$f" ] && source "$f"
+done
+
 
 # Folder commands
 project () { cd ~/projects/$1 }
