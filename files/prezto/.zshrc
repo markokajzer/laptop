@@ -132,3 +132,7 @@ export PATH=$PATH:$GOROOT/bin
 # Skip node trying to install chromium
 export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
 export PUPPETEER_EXECUTABLE_PATH=`which chromium`
+
+# peon-ping quick controls
+alias peon="bash /Users/marko/.claude/hooks/peon-ping/peon.sh"
+[ -f /Users/marko/.claude/hooks/peon-ping/completions.bash ] && source /Users/marko/.claude/hooks/peon-ping/completions.bash
