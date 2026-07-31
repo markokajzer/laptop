@@ -3,3 +3,7 @@ idiomatic_version_file_enable_tools = ["ruby", "node"]
 
 [settings.ruby]
 compile = false
+
+[tools]
+node = "26"
+ruby = "4"
