@@ -20,6 +20,10 @@ echo "Updating global mise config..."
 mkdir -p ~/.config/mise
 cp files/mise/config.toml ~/.config/mise/config.toml
 
+echo "Updating global Codex config..."
+mkdir -p ~/.codex
+cp files/codex/config.toml ~/.codex/config.toml
+
 echo "Overwriting runcoms..."
 cat files/prezto/.zpreztorc >| ~/.zpreztorc
 cat files/prezto/.zprofile  >| ~/.zprofile

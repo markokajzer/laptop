@@ -1,0 +1,199 @@
+model = "gpt-5.6-sol"
+model_reasoning_effort = "xhigh"
+model_verbosity = "low"
+model_reasoning_summary = "concise"
+personality = "pragmatic"
+model_auto_compact_token_limit = 250000
+
+notify = ["/Users/marko/.codex/computer-use/Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient", "turn-ended", "--previous-notify", "[\"bash\",\"\\/Users\\/marko\\/.claude\\/hooks\\/peon-ping\\/adapters\\/codex.sh\"]"]
+
+[features]
+rmcp_client = true
+js_repl = false
+memories = true
+chronicle = false
+
+[memories]
+generate_memories = true
+use_memories = true
+
+[desktop]
+ambient-suggestions-enabled = true
+appearanceTheme = "system"
+appearanceLightCodeThemeId = "notion"
+appearanceDarkCodeThemeId = "codex"
+sansFontSize = 14
+codeFontSize = 16
+followUpQueueMode = "queue"
+preventSleepWhileRunning = true
+keepRemoteControlAwakeWhilePluggedIn = true
+git-branch-prefix = "marko/"
+git-always-force-push = true
+git-pull-request-merge-method = "squash"
+git-show-sidebar-pr-icons = true
+git-commit-instructions = """
+If we start from a Linear task, do not mention task in branch name or commit message.
+
+If we do followups / cleanups on an existing commit, do not create a separate commit, ammend the previous commit instead.
+
+commit messages should be all lowercase.
+
+do not write the subject of the in brackets, e.g. `[subject] description`, use a simple colon instead, e.g. `subject: description`.
+
+do not do any early / continuous pushes, there's likely gonna be followups."""
+git-pr-instructions = """
+## title
+
+if the PR has only a single commit, use the commit message as the PR title.
+
+## linear
+
+If we start from a Linear task, do not mention task in branch name or commit message, mention the task link in the PR instead as the first thing in the description instead.
+Examples:
+1. If task **closes** a PR, write `closes <link>`
+2. If task is **only part** of a PR, and there might be followups, write `part of <link>`
+
+## sections
+
+use sections in the description, e.g. `## scope`, `## test`, `## deployment`, `## caveats`, `## followups` or similar. DO NOT use a section if there is nothing meaningful to say/add about it. use bullet points. be concise and to the point.
+
+in the `scope` section, do not list every single detail of what we did, just concisely explain the purpose of the PR.
+
+in the `test` section, DO NOT explain how to run the tests, they are automatically run by CI. if anything, explain how to test the feature / bug fix / edge case through the UI.
+
+in the `deployment` section, describe if there's any infrastructure dependencies or dependencies on other deployments / pull requests. Skip if none.
+
+in the `followups` section, describe if anything else needs to be done.
+"""
+notifications-turn-mode = "always"
+conversationDetailMode = "STEPS_COMMANDS"
+dock-icon-preference = "app-default"
+reviewDelivery = "detached"
+
+# [mcp_servers.rollbar]
+# command = "/Users/marko/.local/bin/mise"
+# args = ["exec", "--", "npx", "-y", "@rollbar/mcp-server@latest"]
+
+# [mcp_servers.rollbar.env]
+# ROLLBAR_ACCESS_TOKEN = "4cdc9544c2f54b48b6f0db34a5483ecc3e7a0c34f09b6e36539a5611636be034e18265931d81790f31619ef4632f4be1"
+
+# [mcp_servers.redshift]
+# command = "/Users/marko/.local/bin/mise"
+# args = ["exec", "--", "node", "/Users/marko/.codex/bin/redshift-mcp.js"]
+# env_vars = ["REDSHIFT_HOST", "REDSHIFT_PORT", "REDSHIFT_USER", "REDSHIFT_PASSWORD", "REDSHIFT_DBNAME"]
+
+# [mcp_servers.node_repl]
+# args = []
+# command = "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl"
+# startup_timeout_sec = 120
+
+# [mcp_servers.linear]
+# url = "https://mcp.linear.app/mcp"
+# enabled = true
+
+[mcp_servers.openaiDeveloperDocs]
+url = "https://developers.openai.com/mcp"
+
+[marketplaces.openai-bundled]
+last_updated = "2026-07-29T10:10:05Z"
+source_type = "local"
+source = "/Users/marko/.codex/.tmp/bundled-marketplaces/openai-bundled"
+
+[marketplaces.openai-primary-runtime]
+last_updated = "2026-07-31T04:57:58Z"
+source_type = "local"
+source = "/Users/marko/.cache/codex-runtimes/codex-primary-runtime/plugins/openai-primary-runtime"
+
+[marketplaces.claude-plugins-official]
+last_updated = "2026-07-31T09:27:26Z"
+last_revision = "c6e19310289232d8914e638af69268d75cb30c5d"
+source_type = "git"
+source = "https://github.com/anthropics/claude-plugins-official.git"
+
+[plugins."visualize@openai-bundled"]
+enabled = true
+
+[plugins."chrome@openai-bundled"]
+enabled = true
+
+[plugins."browser@openai-bundled"]
+enabled = true
+
+[plugins."sites@openai-bundled"]
+enabled = true
+
+[plugins."documents@openai-primary-runtime"]
+enabled = true
+
+[plugins."spreadsheets@openai-primary-runtime"]
+enabled = true
+
+[plugins."presentations@openai-primary-runtime"]
+enabled = true
+
+[plugins."pdf@openai-primary-runtime"]
+enabled = true
+
+[plugins."template-creator@openai-primary-runtime"]
+enabled = true
+
+[plugins."linear@openai-curated"]
+enabled = true
+
+[plugins."frontend-design@claude-plugins-official"]
+enabled = true
+
+# peon-ping Codex hooks begin
+# install_dir = /Users/marko/.claude/hooks/peon-ping
+[[hooks.SessionStart]]
+matcher = "startup|resume|clear"
+
+[[hooks.SessionStart.hooks]]
+type = "command"
+command = "if [ -f /Users/marko/.claude/hooks/peon-ping/adapters/codex.sh ]; then CLAUDE_PEON_DIR=/Users/marko/.claude/hooks/peon-ping bash /Users/marko/.claude/hooks/peon-ping/adapters/codex.sh >/dev/null 2>&1 || true; fi"
+timeout = 30
+
+[[hooks.UserPromptSubmit]]
+
+[[hooks.UserPromptSubmit.hooks]]
+type = "command"
+command = "if [ -f /Users/marko/.claude/hooks/peon-ping/adapters/codex.sh ]; then CLAUDE_PEON_DIR=/Users/marko/.claude/hooks/peon-ping bash /Users/marko/.claude/hooks/peon-ping/adapters/codex.sh >/dev/null 2>&1 || true; fi"
+timeout = 30
+
+[[hooks.PermissionRequest]]
+
+[[hooks.PermissionRequest.hooks]]
+type = "command"
+command = "if [ -f /Users/marko/.claude/hooks/peon-ping/adapters/codex.sh ]; then CLAUDE_PEON_DIR=/Users/marko/.claude/hooks/peon-ping bash /Users/marko/.claude/hooks/peon-ping/adapters/codex.sh >/dev/null 2>&1 || true; fi"
+timeout = 30
+
+[[hooks.PreCompact]]
+matcher = "manual|auto"
+
+[[hooks.PreCompact.hooks]]
+type = "command"
+command = "if [ -f /Users/marko/.claude/hooks/peon-ping/adapters/codex.sh ]; then CLAUDE_PEON_DIR=/Users/marko/.claude/hooks/peon-ping bash /Users/marko/.claude/hooks/peon-ping/adapters/codex.sh >/dev/null 2>&1 || true; fi"
+timeout = 30
+
+[[hooks.SubagentStart]]
+
+[[hooks.SubagentStart.hooks]]
+type = "command"
+command = "if [ -f /Users/marko/.claude/hooks/peon-ping/adapters/codex.sh ]; then CLAUDE_PEON_DIR=/Users/marko/.claude/hooks/peon-ping bash /Users/marko/.claude/hooks/peon-ping/adapters/codex.sh >/dev/null 2>&1 || true; fi"
+timeout = 30
+
+[[hooks.SubagentStop]]
+
+[[hooks.SubagentStop.hooks]]
+type = "command"
+command = "if [ -f /Users/marko/.claude/hooks/peon-ping/adapters/codex.sh ]; then CLAUDE_PEON_DIR=/Users/marko/.claude/hooks/peon-ping bash /Users/marko/.claude/hooks/peon-ping/adapters/codex.sh >/dev/null 2>&1 || true; fi"
+timeout = 30
+
+[[hooks.Stop]]
+
+[[hooks.Stop.hooks]]
+type = "command"
+command = "if [ -f /Users/marko/.claude/hooks/peon-ping/adapters/codex.sh ]; then CLAUDE_PEON_DIR=/Users/marko/.claude/hooks/peon-ping bash /Users/marko/.claude/hooks/peon-ping/adapters/codex.sh >/dev/null 2>&1 || true; fi"
+timeout = 30
+
+# peon-ping Codex hooks end

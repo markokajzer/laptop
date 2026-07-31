@@ -1,12 +1,14 @@
 #!/bin/bash
 
-cp ~/.config/mise/*  files/mise/
+cp ~/.codex/config.toml files/codex/
 
-cp ~/.gitconfig       files/git/
-cp ~/.gitconfig-moqo  files/git/
-cp ~/.gitconfig-jimdo files/git/
-cp ~/.gitignore       files/git/
+cp ~/.config/mise/*     files/mise/
 
-cp ~/.zpreztorc       files/prezto/
-cp ~/.zprofile        files/prezto/
-cp ~/.zshrc           files/prezto/
+cp ~/.gitconfig         files/git/
+cp ~/.gitconfig-moqo    files/git/
+cp ~/.gitconfig-jimdo   files/git/
+cp ~/.gitignore         files/git/
+
+cp ~/.zpreztorc         files/prezto/
+cp ~/.zprofile          files/prezto/
+cp ~/.zshrc             files/prezto/
