@@ -16,13 +16,13 @@ sudo -v
 
 mkdir -p ~/projects
 
+nl_echo "Installing Command Line Tools..."
+xcode-select --install
+
 nl_echo "Cloning laptop..."
 cd ~/projects || exit 1
 rm -rf "$LAPTOP_FOLDER"
 git clone --quiet https://github.com/markokajzer/laptop.git "$LAPTOP_FOLDER"
-
-nl_echo "Installing Command Line Tools..."
-xcode-select --install
 
 if ! command -v brew >/dev/null; then
   nl_echo "Installing Brew..."
