@@ -33,8 +33,8 @@ fi
 
 
 nl_echo "Installing fonts..."
-brew install font-fira-mono
-brew install font-inconsolata-dz-for-powerline
+brew install --yes font-fira-mono
+brew install --yes font-inconsolata-dz-for-powerline
 
 
 nl_echo "Installing Brew packages..."
@@ -48,7 +48,7 @@ packages=(
   zsh
 )
 for package in "${packages[@]}"; do
-  brew install $package
+  brew install --yes $package
 done
 
 nl_echo "Installing Applications..."
@@ -61,7 +61,7 @@ applications=(
 )
 for application in "${applications[@]}"; do
   nl_echo "Installing $application..."
-  brew install --cask "$application"
+  brew install --cask --yes "$application"
 done
 
 nl_echo "Cleaning up Brew..."
