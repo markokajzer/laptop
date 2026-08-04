@@ -53,6 +53,7 @@ brew install --quiet --yes "${packages[@]}"
 nl_echo "Installing Applications..."
 applications=(
   1password
+  chatgpt
   github
   google-chrome
   spotify
