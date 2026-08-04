@@ -176,6 +176,16 @@ chflags nohidden ~/Library
 # Show Bluetooth in the menu bar
 defaults write com.apple.controlcenter "NSStatusItem Visible Bluetooth" -bool true
 
+# Set menu bar item order from left to right:
+# Input Source, Bluetooth, Wi-Fi, Battery, Spotlight, Control Center
+# Preferred positions are pixel offsets from the right side of the menu bar.
+defaults write com.apple.TextInputMenuAgent "NSStatusItem Preferred Position Item-0" -int 314
+defaults write com.apple.controlcenter "NSStatusItem Preferred Position Bluetooth" -int 282
+defaults write com.apple.controlcenter "NSStatusItem Preferred Position WiFi" -int 244
+defaults write com.apple.controlcenter "NSStatusItem Preferred Position Battery" -int 202
+defaults write com.apple.Spotlight "NSStatusItem Preferred Position Item-0" -int 171
+# defaults write com.apple.controlcenter "NSStatusItem Preferred Position BentoBox-0" -int 129
+
 
 # Automatically hide and show the Dock
 defaults write com.apple.dock autohide -bool true
@@ -217,7 +227,7 @@ osascript -e "tell application \"system events\" to set picture of every desktop
 
 
 nl_echo "Restarting affected applications..."
-killall ControlCenter ControlStrip Dock Finder
+killall ControlCenter TextInputMenuAgent Spotlight ControlStrip Dock Finder
 
 
 nl_echo "Yuhu! Installation completed."
