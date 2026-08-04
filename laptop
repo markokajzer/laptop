@@ -180,6 +180,9 @@ defaults write com.apple.controlcenter "NSStatusItem Visible Bluetooth" -bool tr
 # Automatically hide and show the Dock
 defaults write com.apple.dock autohide -bool true
 
+# Set Dock icon size
+defaults write com.apple.dock tilesize -int 36
+
 # Show only open applications in the Dock
 defaults write com.apple.dock static-only -bool true
 
