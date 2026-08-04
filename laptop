@@ -5,6 +5,7 @@ nl_echo() {
   printf "\n$fmt\n" "$@"
 }
 
+export HOMEBREW_NO_INSTALL_CLEANUP=1
 
 LAPTOP_FOLDER="$HOME/projects/laptop"
 WALLPAPER_URL="https://w.wallhaven.cc/full/x1/wallhaven-x1rowv.jpg"
@@ -60,9 +61,6 @@ applications=(
 )
 brew install --cask --quiet --yes "${applications[@]}"
 
-nl_echo "Cleaning up Brew..."
-brew cleanup -s
-
 
 echo
 printf "Do we need Ruby? [yN]  "
@@ -110,6 +108,10 @@ if [[ ! -d ~/.zprezto ]]; then
 else
   nl_echo "prezto is already installed."
 fi
+
+nl_echo "Cleaning up Brew..."
+brew cleanup --quiet --scrub
+unset HOMEBREW_NO_INSTALL_CLEANUP
 
 nl_echo "Overwriting runcoms..."
 cat $LAPTOP_FOLDER/files/prezto/.zpreztorc >| ~/.zpreztorc
