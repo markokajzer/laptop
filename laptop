@@ -33,7 +33,6 @@ fi
 
 
 nl_echo "Installing fonts..."
-brew tap homebrew/cask-fonts
 brew install font-fira-mono
 brew install font-inconsolata-dz-for-powerline
 
