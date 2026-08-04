@@ -54,7 +54,7 @@ export PATH="/opt/homebrew/bin:$PATH"
 export HOMEBREW_NO_AUTO_UPDATE=1
 # export HOMEBREW_GITHUB_API_TOKEN=ghp_gibberish
 # Use Homebrew OpenSSL with Ruby
-export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)"
 # Use Homebrew sqlite3
 export PATH="$(brew --prefix sqlite)/bin:$PATH"
 # Use Postgres.app psql
