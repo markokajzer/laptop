@@ -63,6 +63,21 @@ applications=(
 )
 brew install --cask --quiet --yes "${applications[@]}"
 
+# Install apps from GitHub
+github_apps=(
+  "AudioPriorityBar=tobi/AudioPriorityBar"
+)
+
+for github_app in "${github_apps[@]}"; do
+  github_app_name="${github_app%%=*}"
+  github_app_repo="${github_app#*=}"
+  github_app_archive="$(mktemp -t "$github_app_name")"
+  curl -fsSL "https://github.com/$github_app_repo/releases/latest/download/$github_app_name.zip" \
+    -o "$github_app_archive"
+  ditto -x -k "$github_app_archive" /Applications
+  rm "$github_app_archive"
+done
+
 
 echo
 printf "Do we need Ruby? [yN]  "
