@@ -33,7 +33,7 @@ fi
 
 
 nl_echo "Installing fonts..."
-brew install --yes \
+brew install --quiet --yes \
   font-fira-mono \
   font-inconsolata-dz-for-powerline
 
@@ -48,7 +48,7 @@ packages=(
   sqlite
   zsh
 )
-brew install --yes "${packages[@]}"
+brew install --quiet --yes "${packages[@]}"
 
 nl_echo "Installing Applications..."
 applications=(
@@ -58,7 +58,7 @@ applications=(
   spotify
   visual-studio-code
 )
-brew install --cask --yes "${applications[@]}"
+brew install --cask --quiet --yes "${applications[@]}"
 
 nl_echo "Cleaning up Brew..."
 brew cleanup -s
