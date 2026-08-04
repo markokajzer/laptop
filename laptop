@@ -45,6 +45,7 @@ nl_echo "Installing Brew packages..."
 packages=(
   autoconf
   automake
+  gh
   git
   mise
   openssl
