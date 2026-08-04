@@ -224,6 +224,21 @@ nightlight temp 90
 nightlight on
 
 
+nl_echo "Setting Terminal profiles..."
+terminal_preferences="$(mktemp)"
+defaults export com.apple.Terminal "$terminal_preferences" >/dev/null
+for terminal_profile in "$LAPTOP_FOLDER"/files/terminal/*.terminal; do
+  terminal_profile_name="$(basename "$terminal_profile" .terminal)"
+  terminal_profile_xml="$(plutil -convert xml1 -o - "$terminal_profile")"
+  plutil -replace "Window Settings.$terminal_profile_name" \
+    -xml "$terminal_profile_xml" "$terminal_preferences"
+done
+plutil -replace "Default Window Settings" -string "Solarized Dark" "$terminal_preferences"
+plutil -replace "Startup Window Settings" -string "Solarized Dark" "$terminal_preferences"
+defaults import com.apple.Terminal "$terminal_preferences"
+rm "$terminal_preferences"
+
+
 nl_echo "Changing desktop wallpaper..."
 curl -o $LAPTOP_FOLDER/files/wallpaper.jpg $WALLPAPER_URL
 osascript -e "tell application \"system events\" to set picture of every desktop to (\"$LAPTOP_FOLDER/files/wallpaper.jpg\" as posix file as alias)"
@@ -234,6 +249,6 @@ killall ControlCenter TextInputMenuAgent Spotlight ControlStrip Dock Finder
 
 
 nl_echo "Yuhu! Installation completed."
-nl_echo "Things left to do:"
-echo "[ ] Set Terminal profiles"
+echo "Terminal profile will update on Terminal restart"
+echo "Things left to do:"
 echo "[ ] Setup 1Password"
