@@ -186,6 +186,9 @@ defaults write com.apple.dock tilesize -int 36
 # Show only open applications in the Dock
 defaults write com.apple.dock static-only -bool true
 
+# Hide suggested and recent apps in the Dock
+defaults write com.apple.dock show-recents -bool false
+
 # Do not re-arrange spaces based on recent use
 defaults write com.apple.dock mru-spaces -bool false
 
