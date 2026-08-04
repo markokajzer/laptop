@@ -36,16 +36,24 @@ sh -c "$(curl -fsSL https://raw.github.com/markokajzer/laptop/main/laptop)"
 
 **Programming languages and configuration:**
 
-* [rbenv](https://github.com/sstephenson/rbenv) for managing versions of Ruby.
+* [mise](https://mise.jdx.dev/) for managing development tools and runtimes.
   * [Ruby](https://www.ruby-lang.org/en/) to write general-purpose code. (optional)
-  * [Bundler](http://bundler.io/) for managing Ruby libraries.
-* [nodenv](https://github.com/nodenv/nodenv) for managing versions of Node.js.
-* [yarn](https://yarnpkg.com) for managing JavaScript packages.
-* [Python 3](https://www.python.org/) as an all purpose language. (optional)
+  * [Node.js](https://nodejs.org/) for JavaScript development. (optional)
+  * [Python 3](https://www.python.org/) as an all purpose language. (optional)
 * [SQLite](https://www.sqlite.org) as a development database.
 
 **Applications:**
 
-* [Flux](https://justgetflux.com/) to adjust the display color for better sleep.
+* [1Password](https://1password.com/) for password management.
+* [AusweisApp](https://www.ausweisapp.bund.de/) for electronic identity authentication.
+* [AudioPriorityBar](https://github.com/tobi/AudioPriorityBar) to manage audio devices.
+* [ChatGPT](https://chatgpt.com/) and [Claude](https://claude.ai/) for AI assistance.
+  * [CodexBar](https://codexbar.app/) to monitor coding assistant usage.
+* [GitHub Desktop](https://desktop.github.com/) for GitHub workflows.
 * [Google Chrome](https://www.google.com/chrome/) for browsing the web.
+* [Spotify](https://www.spotify.com/) for music streaming.
 * [VS Code](https://code.visualstudio.com/) as a text editor.
+
+**References:**
+
+* [kentcdodds/dotfiles](https://github.com/kentcdodds/dotfiles)
