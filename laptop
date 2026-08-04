@@ -62,7 +62,7 @@ applications=(
 )
 for application in "${applications[@]}"; do
   nl_echo "Installing $application..."
-  brew cask install $application
+  brew install --cask "$application"
 done
 
 nl_echo "Cleaning up Brew..."
