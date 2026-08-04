@@ -14,8 +14,9 @@ WALLPAPER_URL="https://w.wallhaven.cc/full/x1/wallhaven-x1rowv.jpg"
 mkdir -p ~/projects
 
 nl_echo "Cloning laptop..."
-rm -rf $LAPTOP_FOLDER
-git clone git@github.com:markokajzer/laptop.git $LAPTOP_FOLDER  # &> /dev/null
+cd ~/projects || exit 1
+rm -rf "$LAPTOP_FOLDER"
+git clone git@github.com:markokajzer/laptop.git "$LAPTOP_FOLDER"  # &> /dev/null
 
 nl_echo "Creating global .gitconfig..."
 cp -a $LAPTOP_FOLDER/files/git/. ~
@@ -26,7 +27,9 @@ xcode-select --install
 
 if ! command -v brew >/dev/null; then
   nl_echo "Installing Brew..."
-  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/main/install)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  echo -n "Loading Brew..."
+  eval "$(/opt/homebrew/bin/brew shellenv zsh)"
 else
   nl_echo "Updating Brew..."
   brew update
