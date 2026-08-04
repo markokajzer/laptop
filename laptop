@@ -7,7 +7,7 @@ nl_echo() {
 
 export HOMEBREW_NO_INSTALL_CLEANUP=1
 
-LAPTOP_FOLDER="$HOME/projects/laptop"
+LAPTOP_FOLDER="$HOME/laptop-init"
 WALLPAPER_URL="https://w.wallhaven.cc/full/x1/wallhaven-x1rowv.jpg"
 
 
@@ -16,7 +16,7 @@ mkdir -p ~/projects
 nl_echo "Cloning laptop..."
 cd ~/projects || exit 1
 rm -rf "$LAPTOP_FOLDER"
-git clone git@github.com:markokajzer/laptop.git "$LAPTOP_FOLDER"  # &> /dev/null
+git clone --quiet https://github.com/markokajzer/laptop.git "$LAPTOP_FOLDER"
 
 nl_echo "Creating global .gitconfig..."
 cp -a $LAPTOP_FOLDER/files/git/. ~
