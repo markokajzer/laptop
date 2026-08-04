@@ -57,8 +57,6 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)"
 # Use Homebrew sqlite3
 export PATH="$(brew --prefix sqlite)/bin:$PATH"
-# Use Postgres.app psql
-# export PATH="/Applications/Postgres.app/Contents/Versions/9.6/bin:$PATH"
 # libpq on Apple Silicon
 export PATH="$(brew --prefix libpq)/bin:$PATH"
 
