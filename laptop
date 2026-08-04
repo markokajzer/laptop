@@ -33,8 +33,9 @@ fi
 
 
 nl_echo "Installing fonts..."
-brew install --yes font-fira-mono
-brew install --yes font-inconsolata-dz-for-powerline
+brew install --yes \
+  font-fira-mono \
+  font-inconsolata-dz-for-powerline
 
 
 nl_echo "Installing Brew packages..."
@@ -47,9 +48,7 @@ packages=(
   sqlite
   zsh
 )
-for package in "${packages[@]}"; do
-  brew install --yes $package
-done
+brew install --yes "${packages[@]}"
 
 nl_echo "Installing Applications..."
 applications=(
@@ -59,10 +58,7 @@ applications=(
   spotify
   visual-studio-code
 )
-for application in "${applications[@]}"; do
-  nl_echo "Installing $application..."
-  brew install --cask --yes "$application"
-done
+brew install --cask --yes "${applications[@]}"
 
 nl_echo "Cleaning up Brew..."
 brew cleanup -s
