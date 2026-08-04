@@ -11,6 +11,9 @@ LAPTOP_FOLDER="$HOME/laptop-init"
 WALLPAPER_URL="https://w.wallhaven.cc/full/x1/wallhaven-x1rowv.jpg"
 
 
+# Ask for the administrator password upfront
+sudo -v
+
 mkdir -p ~/projects
 
 nl_echo "Cloning laptop..."
@@ -51,7 +54,7 @@ packages=(
 )
 brew install --quiet --yes "${packages[@]}"
 
-nl_echo "Installing Applications..."
+echo "Installing Applications..."
 applications=(
   1password
   ausweisapp
@@ -85,14 +88,14 @@ echo
 printf "Do we need Ruby? [yN]  "
 read -r response
 if [[ "$response" = "y" ]]; then
-  nl_echo "Creating .gemrc..."
+  echo "Creating .gemrc..."
   echo "gem: --no-document" >| ~/.gemrc
 
-  nl_echo "Installing latest stable Ruby..."
+  echo "Installing latest stable Ruby..."
   ruby_version="$(mise ls-remote ruby | grep -E '^\d+\.\d+\.\d+$' | tail -1)"
   mise use -g ruby@"$ruby_version"
 
-  nl_echo "Updating RubyGems and installing bundler..."
+  echo "Updating RubyGems and installing bundler..."
   gem update --system
   gem install bundler
 else
@@ -103,11 +106,11 @@ echo
 printf "Do we need Python? [yN]  "
 read -r response
 if [[ "$response" = "y" ]]; then
-  nl_echo "Installing latest stable Python..."
+  echo "Installing latest stable Python..."
   python_version="$(mise ls-remote python | grep -E '^\d+\.\d+\.\d+$' | tail -1)"
   mise use -g python@"$python_version"
 
-  nl_echo "Updating pip..."
+  echo "Updating pip..."
   pip install --upgrade pip
 else
   echo "Skipping Python."
