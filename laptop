@@ -54,6 +54,7 @@ nl_echo "Installing Applications..."
 applications=(
   1password
   chatgpt
+  claude
   github
   google-chrome
   spotify
