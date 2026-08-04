@@ -49,6 +49,7 @@ packages=(
   git
   mise
   openssl
+  PeonPing/tap/peon-ping
   smudge/smudge/nightlight
   sqlite
   zsh
