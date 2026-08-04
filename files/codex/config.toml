@@ -10,12 +10,8 @@ notify = ["/Users/marko/.codex/computer-use/Codex Computer Use.app/Contents/Shar
 [features]
 rmcp_client = true
 js_repl = false
-memories = true
+memories = false
 chronicle = false
-
-[memories]
-generate_memories = true
-use_memories = true
 
 [desktop]
 ambient-suggestions-enabled = true
