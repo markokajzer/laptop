@@ -54,6 +54,6 @@ sh -c "$(curl -fsSL https://raw.github.com/markokajzer/laptop/main/laptop)"
 * [Spotify](https://www.spotify.com/) for music streaming.
 * [VS Code](https://code.visualstudio.com/) as a text editor.
 
-**References:**
+## References
 
 * [kentcdodds/dotfiles](https://github.com/kentcdodds/dotfiles)

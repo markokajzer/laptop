@@ -181,7 +181,7 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 # Night Shift                                                                 #
 ###############################################################################
 
-# Configure Night Shift: sunset to sunrise, on until sunrise, temperature 90
+# sunset to sunrise, very warm
 nightlight schedule start
 nightlight temp 90
 nightlight on
