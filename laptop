@@ -69,7 +69,7 @@ applications=(
   spotify
   visual-studio-code
 )
-brew install --cask --quiet --yes "${applications[@]}"
+brew install --cask --quiet --yes --adopt "${applications[@]}"
 
 # Install apps from GitHub
 github_apps=(
