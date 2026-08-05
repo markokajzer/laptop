@@ -48,6 +48,7 @@ packages=(
   dockutil
   gh
   git
+  mas
   mise
   openssl
   PeonPing/tap/peon-ping
@@ -70,6 +71,12 @@ applications=(
   visual-studio-code
 )
 brew install --cask --quiet --yes --adopt "${applications[@]}"
+
+# Install applications from the Mac App Store
+app_store_applications=(
+  1545870783 # System Color Picker
+)
+mas get "${app_store_applications[@]}"
 
 # Install apps from GitHub
 github_apps=(

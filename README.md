@@ -52,6 +52,7 @@ sh -c "$(curl -fsSL https://raw.github.com/markokajzer/laptop/main/laptop)"
 * [GitHub Desktop](https://desktop.github.com/) for GitHub workflows.
 * [Google Chrome](https://www.google.com/chrome/) for browsing the web.
 * [Spotify](https://www.spotify.com/) for music streaming.
+* [System Color Picker](https://sindresorhus.com/system-color-picker) for picking and converting colors.
 * [VS Code](https://code.visualstudio.com/) as a text editor.
 
 ## References
