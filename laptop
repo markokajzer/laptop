@@ -191,6 +191,9 @@ nightlight on
 # Keyboard                                                                    #
 ###############################################################################
 
+# Enable press-and-hold for keys instead of key repeat
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool true
+
 # Set super fast key repeat
 # KeyRepeat values: 120, 90, 60, 30, 12, 6, 2 (smaller = faster)
 defaults write NSGlobalDomain KeyRepeat -int 2
