@@ -175,6 +175,11 @@ defaults write NSGlobalDomain KeyRepeat -int 2
 # InitialKeyRepeat: 120, 94, 68, 35, 25, 15
 defaults write NSGlobalDomain InitialKeyRepeat -int 15
 
+# Enable snap-to-grid for icons on the desktop and in other icon views
+/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
+
 # Do not hide Library folder
 chflags nohidden ~/Library
 
@@ -255,7 +260,7 @@ osascript -e "tell application \"system events\" to set picture of every desktop
 
 
 nl_echo "Restarting affected applications..."
-killall ControlCenter TextInputMenuAgent Spotlight ControlStrip Dock Finder
+killall ControlCenter TextInputMenuAgent Spotlight ControlStrip Dock cfprefsd Finder
 
 
 nl_echo "Yuhu! Installation completed."
