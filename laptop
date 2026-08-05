@@ -162,12 +162,34 @@ chsh -s /bin/zsh
 
 
 nl_echo "Changing settings..."
+
+###############################################################################
+# General UI/UX                                                               #
+###############################################################################
+
 # Disable automatic capitalization after period
 defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
+
 # Disable automatic period substitution when hitting space twice
 defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false
+
 # Disable auto-correct
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+
+
+###############################################################################
+# Night Shift                                                                 #
+###############################################################################
+
+# Configure Night Shift: sunset to sunrise, on until sunrise, temperature 90
+nightlight schedule start
+nightlight temp 90
+nightlight on
+
+
+###############################################################################
+# Keyboard                                                                    #
+###############################################################################
 
 # Set super fast key repeat
 # KeyRepeat values: 120, 90, 60, 30, 12, 6, 2 (smaller = faster)
@@ -175,14 +197,33 @@ defaults write NSGlobalDomain KeyRepeat -int 2
 # InitialKeyRepeat: 120, 94, 68, 35, 25, 15
 defaults write NSGlobalDomain InitialKeyRepeat -int 15
 
+
+###############################################################################
+# Finder                                                                      #
+###############################################################################
+
+# Finder: show all filename extensions
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
 # Enable snap-to-grid for icons on the desktop and in other icon views
 /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
 /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
 /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
 
+# Finder: show the sidebar by default
+defaults write com.apple.finder ShowSidebar -bool true
+
+# Avoid .DS_Store files on shared and external volumes
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
+
 # Do not hide Library folder
 chflags nohidden ~/Library
 
+
+###############################################################################
+# Menu bar                                                                    #
+###############################################################################
 
 # Show Bluetooth in the menu bar
 defaults write com.apple.controlcenter "NSStatusItem Visible Bluetooth" -bool true
@@ -197,6 +238,10 @@ defaults write com.apple.controlcenter "NSStatusItem Preferred Position Battery"
 defaults write com.apple.Spotlight "NSStatusItem Preferred Position Item-0" -int 171
 # defaults write com.apple.controlcenter "NSStatusItem Preferred Position BentoBox-0" -int 129
 
+
+###############################################################################
+# Dock and hot corners                                                        #
+###############################################################################
 
 # Automatically hide and show the Dock
 defaults write com.apple.dock autohide -bool true
@@ -226,17 +271,25 @@ defaults write com.apple.dock mru-spaces -bool false
 # defaults write com.apple.dock wvous-bl-corner -int 3
 defaults write com.apple.dock wvous-br-corner -int 4
 
+
+###############################################################################
+# Terminal                                                                    #
+###############################################################################
+
 # Disable Terminal markers
 defaults write com.apple.Terminal AutoMarkPromptLines -bool false
 
+# Enable Secure Keyboard Entry in Terminal.app
+# See: https://security.stackexchange.com/a/47786/8918
+defaults write com.apple.Terminal SecureKeyboardEntry -bool true
+
+
+###############################################################################
+# Touch Bar                                                                   #
+###############################################################################
+
 # Always show expanded control strip on Touchbar
 # defaults write com.apple.touchbar.agent PresentationModeGlobal fullControlStrip
-
-
-# Configure Night Shift: sunset to sunrise, on until sunrise, temperature 90
-nightlight schedule start
-nightlight temp 90
-nightlight on
 
 
 nl_echo "Setting Terminal profiles..."
