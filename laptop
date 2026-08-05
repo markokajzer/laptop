@@ -197,7 +197,7 @@ defaults write com.apple.Spotlight "NSStatusItem Preferred Position Item-0" -int
 defaults write com.apple.dock autohide -bool true
 
 # Set Dock icon size
-defaults write com.apple.dock tilesize -int 36
+defaults write com.apple.dock tilesize -int 48
 
 # Show pinned and open applications in the Dock
 defaults write com.apple.dock static-only -bool false
