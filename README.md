@@ -51,6 +51,7 @@ sh -c "$(curl -fsSL https://raw.github.com/markokajzer/laptop/main/laptop)"
   * [CodexBar](https://codexbar.app/) to monitor coding assistant usage.
 * [GitHub Desktop](https://desktop.github.com/) for GitHub workflows.
 * [Google Chrome](https://www.google.com/chrome/) for browsing the web.
+* [OrbStack](https://orbstack.dev/) for running containers and Linux machines.
 * [Rectangle](https://github.com/rxhanson/Rectangle) for window management.
 * [Spotify](https://www.spotify.com/) for music streaming.
 * [System Color Picker](https://sindresorhus.com/system-color-picker) for picking and converting colors.
